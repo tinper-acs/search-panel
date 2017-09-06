@@ -1,0 +1,14 @@
+@import "../node_modules/tinper-bee-core/scss/minxin-variables";
+@import "../node_modules/tinper-bee-core/scss/minxin-mixins";
+.u-search .u-search-content .u-panel-body:after {
+  clear: both;
+}
+.u-search .u-panel-heading{
+  cursor: pointer;
+}
+.u-search .u-search-footer{
+  margin-top:10px;
+}
+.u-search .u-search-footer>.u-button:nth-of-type(1){
+  margin-right: 10px;
+}
