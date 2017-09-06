@@ -1,5 +1,3 @@
-# bee-search-panel
-
 [![npm version](https://img.shields.io/npm/v/bee-search-panel.svg)](https://www.npmjs.com/package/bee-search-panel)
 [![Build Status](https://img.shields.io/travis/tinper-bee/bee-search-panel/master.svg)](https://travis-ci.org/tinper-bee/bee-search-panel)
 [![Coverage Status](https://coveralls.io/repos/github/tinper-bee/bee-search-panel/badge.svg?branch=master)](https://coveralls.io/github/tinper-bee/bee-search-panel?branch=master)
@@ -59,3 +57,4 @@ $ cd bee-search-panel
 $ npm install
 $ npm run dev
 ```
+
