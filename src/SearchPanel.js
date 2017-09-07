@@ -44,10 +44,10 @@ class SearchPanel extends Component {
         let header = () => {
             return (
                 <div className="clearfix" onClick={this.open} {...others}>
-                    <span  className="pull-left">
+                    <span  className={clsPrefix+'-title'}>
                         {searchHead}
                     </span>
-                    <span  className="pull-right">
+                    <span  className={clsPrefix+'-icon'}>
                         {this.state.searchOpen ? '收起' : '展开'}
                         {
                             showIcon?( <i className={classnames({
