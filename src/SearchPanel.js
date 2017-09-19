@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {Panel} from 'bee-panel';
-import {Row, Col} from 'bee-layout';
 import Button from 'bee-button';
 import classnames from 'classnames';
 const propTypes = {
@@ -40,7 +39,8 @@ class SearchPanel extends Component {
     }
 
     render() {
-        const {className,clsPrefix,searchClick,clearClick,searchContent,showIcon,searchHead,searchOpen,style,...others}=this.props;
+        let {className,clsPrefix,searchClick,clearClick,searchContent,showIcon,searchHead,searchOpen,style,...others}=this.props;
+        className=className?className:'';
         let header = () => {
             return (
                 <div className="clearfix" onClick={this.open} {...others}>
@@ -63,17 +63,13 @@ class SearchPanel extends Component {
 
         return (
             <div className={clsPrefix+' '+className} style={style}>
-                <Row>
-                    <Col xs={12}>
-                        <Panel header={header()} className={clsPrefix+'-content'} collapsible expanded={this.state.searchOpen}>
-                            {searchContent}
-                            <div className={clsPrefix+'-footer pull-right'}>
-                                <Button colors="primary"  onClick={searchClick}>查询</Button>
-                                <Button onClick={clearClick}>清空</Button>
-                            </div>
-                        </Panel>
-                    </Col>
-                </Row>
+                <Panel header={header()} className={clsPrefix+'-content'} collapsible expanded={this.state.searchOpen}>
+                    {searchContent}
+                    <div className={clsPrefix+'-footer pull-right'}>
+                        <Button bordered={true} colors="primary"  onClick={searchClick}>查询</Button>
+                        <Button bordered={true} colors="primary" onClick={clearClick}>清空</Button>
+                    </div>
+                </Panel>
             </div>
 
         )

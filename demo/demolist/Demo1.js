@@ -6,7 +6,7 @@
  */
 import React, {Component} from 'react';
 import SearchPanel from '../../src';
-import {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee'
+import {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';
 
 
 class Demo1 extends Component {
@@ -14,8 +14,6 @@ class Demo1 extends Component {
         super(props);
         this.state={
             state:'all',
-            type:'all',
-            degree:'all'
         }
     }
     stateChange(value){
@@ -42,74 +40,32 @@ class Demo1 extends Component {
     render() {
         let searchContent=()=>{
             return (
-                <div>
-                    <Row>
-                        <FormGroup>
-                            <Col md={1} sm={2} className="text-right">
-                                <Label>状态:</Label>
-                            </Col>
-                            <Col md={3} sm={4}>
-                                <Radio.RadioGroup
-                                    name="state"
-                                    selectedValue={this.state.state}
-                                    onChange={this.stateChange.bind(this)}>
-                                    <Radio.RadioButton value="all">全部</Radio.RadioButton>
-                                    <Radio.RadioButton value="todo">待处理</Radio.RadioButton>
-                                    <Radio.RadioButton value="doing">处理中</Radio.RadioButton>
-                                    <Radio.RadioButton  value="done">已完成</Radio.RadioButton>
-                                </Radio.RadioGroup>
-                            </Col>
-                        </FormGroup>
-                        <FormGroup>
-                            <Col md={1} sm={2} className="text-right">
-                                <Label>类型:</Label>
-                            </Col>
-                            <Col md={3} sm={4}>
-                                <Radio.RadioGroup
-                                    name="type"
-                                    selectedValue={this.state.type}
-                                    onChange={this.typeChange.bind(this)}>
-                                    <Radio.RadioButton value="all">全部</Radio.RadioButton>
-                                    <Radio.RadioButton value="project">问题</Radio.RadioButton>
-                                    <Radio.RadioButton value="suggest">建议</Radio.RadioButton>
-                                    <Radio.RadioButton  value="experience">体验</Radio.RadioButton>
-                                </Radio.RadioGroup>
-                            </Col>
-                        </FormGroup>
-                        <FormGroup>
-                            <Col md={1} sm={2} className="text-right">
-                                <Label>程度:</Label>
-                            </Col>
-                            <Col md={3} sm={4}>
-                                <Radio.RadioGroup
-                                    name="degree"
-                                    selectedValue={this.state.degree}
-                                    onChange={this.degreeChange.bind(this)}>
-                                    <Radio.RadioButton value="all">全部</Radio.RadioButton>
-                                    <Radio.RadioButton value="common">一般</Radio.RadioButton>
-                                    <Radio.RadioButton value="serious">严重</Radio.RadioButton>
-                                    <Radio.RadioButton  value="urgent">紧急</Radio.RadioButton>
-                                </Radio.RadioGroup>
-                            </Col>
-                        </FormGroup>
-                        <FormGroup>
-                            <Col md={1} sm={2} className="text-right">
-                                <Label>名称:</Label>
-                            </Col>
-                            <Col md={3} sm={4}>
-                                <FormControl placeholder="请输入名称"/>
-                            </Col>
-                        </FormGroup>
+                <div className="demo">
+                    <div>
+                        <label className="demo-label">状态:</label>
+                        <Radio.RadioGroup
+                            name="state"
+                            selectedValue={this.state.state}
+                            onChange={this.stateChange.bind(this)}>
+                            <Radio.RadioButton value="all">全部</Radio.RadioButton>
+                            <Radio.RadioButton value="initial">初始化</Radio.RadioButton>
+                            <Radio.RadioButton value="todo">待处理</Radio.RadioButton>
+                            <Radio.RadioButton value="doing">处理中</Radio.RadioButton>
+                            <Radio.RadioButton  value="done">已完成</Radio.RadioButton>
+                            <Radio.RadioButton  value="closed">已完成</Radio.RadioButton>
+                        </Radio.RadioGroup>
+                    </div>
 
-                        <FormGroup>
-                            <Col md={1} sm={2} className="text-right">
-                                <Label>编码:</Label>
-                            </Col>
-                            <Col md={3} sm={4}>
-                                <FormControl placeholder="请输入编码"/>
-                            </Col>
-                        </FormGroup>
-                    </Row>
+                    <div className="margin-top-10">
+                        <span className="demo-item">
+                            <label className="demo-label">名称:</label>
+                            <FormControl placeholder="请输入名称"/>
+                        </span>
+                        <span className="demo-item">
+                            <label className="demo-label">编码:</label>
+                            <FormControl placeholder="请输入编码"/>
+                        </span>
+                    </div>
                 </div>
             )
         }
@@ -119,6 +75,7 @@ class Demo1 extends Component {
                 searchContent={searchContent()}
                 searchClick={this.search}
                 clearClick={this.clear}
+                searchOpen={true}
             />
         )
     }
