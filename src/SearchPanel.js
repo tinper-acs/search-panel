@@ -1,7 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {Panel} from 'bee-panel';
 import Button from 'bee-button';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
+
 const propTypes = {
     searchOpen:PropTypes.bool,
     showIcon:PropTypes.bool,
