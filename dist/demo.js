@@ -80,7 +80,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    render() {\n        let searchContent=()=>{\n            return (\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            )\n        }\n        return (\n            <SearchPanel\n                searchHead='基础示例'\n                searchContent={searchContent()}\n                searchClick={this.search}\n                clearClick={this.clear}\n                searchOpen={true}\n            />\n        )\n    }\n}\n", "desc": " 基础示例" }];
+	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n\n                onSearch={this.search}\n                onReset={this.clear}\n                searchOpen={true}\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -7946,17 +7946,11 @@
 	    value: true
 	});
 	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(4);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _beePanel = __webpack_require__(8);
-	
-	var _beeButton = __webpack_require__(82);
-	
-	var _beeButton2 = _interopRequireDefault(_beeButton);
 	
 	var _classnames = __webpack_require__(3);
 	
@@ -7970,34 +7964,33 @@
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
+	var emFun = function emFun() {};
+	
 	var propTypes = {
-	    searchOpen: _propTypes2['default'].bool,
-	    showIcon: _propTypes2['default'].bool,
-	    searchHead: _propTypes2['default'].string,
-	    searchClick: _propTypes2['default'].func,
-	    clearClick: _propTypes2['default'].func
+	    searchOpen: _propTypes2['default'].bool, //是否默认展开，false默认关闭
+	    search: _propTypes2['default'].func, //查询的回调
+	    reset: _propTypes2['default'].func, //重置的回调
+	    resetName: _propTypes2['default'].string, //重置的文字
+	    searchName: _propTypes2['default'].string, //查询的文字
+	    title: _propTypes2['default'].string
 	};
+	
 	var defaultProps = {
-	    searchOpen: false, //是否默认展开，false默认关闭
-	    showIcon: true, //是否显示icon
-	    searchHead: '',
-	    searchContent: '',
-	    searchClick: function searchClick() {//查询回调
-	
-	    },
-	    clearClick: function clearClick() {//清空回调
-	
-	    },
+	    className: "",
 	    clsPrefix: 'u-search',
-	    style: {}
+	    searchOpen: true,
+	    onSearch: emFun,
+	    onReset: emFun,
+	    title: "默认筛选",
+	    resetName: "清除查询",
+	    searchName: "查询",
+	    bgColor: "#F7F9FB"
 	};
 	
 	var SearchPanel = function (_Component) {
@@ -8008,86 +8001,109 @@
 	
 	        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 	
-	        _this.state = {
-	            searchOpen: _this.props.searchOpen
+	        _this.open = function () {
+	            _this.setState({
+	                searchOpen: !_this.state.searchOpen
+	            });
 	        };
-	        _this.open = _this.open.bind(_this);
+	
+	        _this.search = function () {
+	            var onSearch = _this.props.onSearch;
+	
+	            onSearch && onSearch();
+	        };
+	
+	        _this.reset = function () {
+	            var onReset = _this.props.onReset;
+	
+	            onReset && onReset();
+	        };
+	
+	        _this.state = {
+	            searchOpen: props.searchOpen
+	        };
 	        return _this;
 	    }
 	
-	    SearchPanel.prototype.open = function open() {
-	        this.setState({
-	            searchOpen: !this.state.searchOpen
-	        });
-	    };
+	    SearchPanel.prototype.componentDidMount = function componentDidMount() {};
 	
 	    SearchPanel.prototype.render = function render() {
-	        var _this2 = this;
-	
 	        var _props = this.props,
-	            className = _props.className,
+	            children = _props.children,
 	            clsPrefix = _props.clsPrefix,
-	            searchClick = _props.searchClick,
-	            clearClick = _props.clearClick,
-	            searchContent = _props.searchContent,
-	            showIcon = _props.showIcon,
-	            searchHead = _props.searchHead,
-	            searchOpen = _props.searchOpen,
-	            style = _props.style,
-	            others = _objectWithoutProperties(_props, ['className', 'clsPrefix', 'searchClick', 'clearClick', 'searchContent', 'showIcon', 'searchHead', 'searchOpen', 'style']);
+	            className = _props.className,
+	            resetName = _props.resetName,
+	            searchName = _props.searchName,
+	            onCallback = _props.onCallback,
+	            bgColor = _props.bgColor;
 	
-	        className = className ? className : '';
-	        var header = function header() {
-	            return _react2['default'].createElement(
+	
+	        var PanelHeader = _react2['default'].createElement(
+	            'div',
+	            { className: clsPrefix + "-header" },
+	            _react2['default'].createElement(
 	                'div',
-	                _extends({ className: 'clearfix', onClick: _this2.open }, others),
+	                { className: clsPrefix + "-header-title" },
 	                _react2['default'].createElement(
 	                    'span',
-	                    { className: clsPrefix + '-title' },
-	                    searchHead
+	                    null,
+	                    this.props.title
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: clsPrefix + "-header-oper" },
+	                _react2['default'].createElement(
+	                    'a',
+	                    {
+	                        className: 'header-oper-btn',
+	                        role: 'button',
+	                        onClick: this.open
+	                    },
+	                    this.state.searchOpen ? '收起' : '展开',
+	                    _react2['default'].createElement('i', { className: (0, _classnames2['default'])({
+	                            'uf': true,
+	                            'uf-arrow-down': !this.state.searchOpen,
+	                            'uf-arrow-up': this.state.searchOpen
+	                        }) })
 	                ),
 	                _react2['default'].createElement(
-	                    'span',
-	                    { className: clsPrefix + '-icon' },
-	                    _this2.state.searchOpen ? '收起' : '展开',
-	                    showIcon ? _react2['default'].createElement('i', { className: (0, _classnames2['default'])({
-	                            'uf': true,
-	                            'uf-2arrow-down': _this2.state.searchOpen,
-	                            'uf-2arrow-up': !_this2.state.searchOpen
-	                        }) }) : ''
-	                )
-	            );
-	        };
-	
-	        return _react2['default'].createElement(
-	            'div',
-	            { className: clsPrefix + ' ' + className, style: style },
-	            _react2['default'].createElement(
-	                _beePanel.Panel,
-	                { header: header(), className: clsPrefix + '-content', collapsible: true, expanded: this.state.searchOpen },
-	                searchContent,
+	                    'a',
+	                    { className: 'header-oper-btn', role: 'button', onClick: this.reset },
+	                    resetName
+	                ),
 	                _react2['default'].createElement(
-	                    'div',
-	                    { className: clsPrefix + '-footer pull-right' },
-	                    _react2['default'].createElement(
-	                        _beeButton2['default'],
-	                        { bordered: true, colors: 'primary', onClick: searchClick },
-	                        '\u67E5\u8BE2'
-	                    ),
-	                    _react2['default'].createElement(
-	                        _beeButton2['default'],
-	                        { bordered: true, colors: 'primary', onClick: clearClick },
-	                        '\u6E05\u7A7A'
-	                    )
+	                    'a',
+	                    { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
+	                    searchName
 	                )
 	            )
+	        );
+	        return _react2['default'].createElement(
+	            _beePanel.Panel,
+	            {
+	                className: clsPrefix + ' ' + className,
+	                header: PanelHeader,
+	                collapsible: true,
+	
+	                expanded: this.state.searchOpen,
+	                onExited: function onExited() {
+	                    return onCallback && onCallback(false);
+	                } //隐藏完成回调
+	                , onEntered: function onEntered() {
+	                    return onCallback && onCallback(true);
+	                } //显示后回调
+	                , style: {
+	                    backgroundColor: bgColor
+	                }
+	            },
+	            children
 	        );
 	    };
 	
 	    return SearchPanel;
 	}(_react.Component);
 	
-	;
 	SearchPanel.propTypes = propTypes;
 	SearchPanel.defaultProps = defaultProps;
 	exports['default'] = SearchPanel;
@@ -8166,10 +8182,17 @@
 	    Demo1.prototype.clear = function clear() {};
 	
 	    Demo1.prototype.render = function render() {
-	        var _this2 = this;
 	
-	        var searchContent = function searchContent() {
-	            return _react2['default'].createElement(
+	        return _react2['default'].createElement(
+	            _src2['default'],
+	            {
+	                title: '\u57FA\u7840\u793A\u4F8B',
+	
+	                onSearch: this.search,
+	                onReset: this.clear,
+	                searchOpen: true
+	            },
+	            _react2['default'].createElement(
 	                'div',
 	                { className: 'demo' },
 	                _react2['default'].createElement(
@@ -8184,8 +8207,8 @@
 	                        _tinperBee.Radio.RadioGroup,
 	                        {
 	                            name: 'state',
-	                            selectedValue: _this2.state.state,
-	                            onChange: _this2.stateChange.bind(_this2) },
+	                            selectedValue: this.state.state,
+	                            onChange: this.stateChange.bind(this) },
 	                        _react2['default'].createElement(
 	                            _tinperBee.Radio.RadioButton,
 	                            { value: 'all' },
@@ -8242,15 +8265,8 @@
 	                        _react2['default'].createElement(_tinperBee.FormControl, { placeholder: '\u8BF7\u8F93\u5165\u7F16\u7801' })
 	                    )
 	                )
-	            );
-	        };
-	        return _react2['default'].createElement(_src2['default'], {
-	            searchHead: '\u57FA\u7840\u793A\u4F8B',
-	            searchContent: searchContent(),
-	            searchClick: this.search,
-	            clearClick: this.clear,
-	            searchOpen: true
-	        });
+	            )
+	        );
 	    };
 	
 	    return Demo1;

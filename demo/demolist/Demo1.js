@@ -38,8 +38,15 @@ class Demo1 extends Component {
 
     }
     render() {
-        let searchContent=()=>{
-            return (
+
+        return (
+            <SearchPanel
+                title='基础示例'
+
+                onSearch={this.search}
+                onReset={this.clear}
+                searchOpen={true}
+            >
                 <div className="demo">
                     <div>
                         <label className="demo-label">状态:</label>
@@ -67,16 +74,7 @@ class Demo1 extends Component {
                         </span>
                     </div>
                 </div>
-            )
-        }
-        return (
-            <SearchPanel
-                searchHead='基础示例'
-                searchContent={searchContent()}
-                searchClick={this.search}
-                clearClick={this.clear}
-                searchOpen={true}
-            />
+            </SearchPanel>
         )
     }
 }

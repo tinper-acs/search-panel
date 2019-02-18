@@ -5258,36 +5258,54 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu,
 
 /* FormGroup */
 /*  Navlayout  */
-.u-search .u-panel-heading {
-  cursor: pointer;
-  border-bottom: 1px dashed #979797; }
-
-.u-search .u-search-content {
-  border: none; }
-
-.u-search .u-search-content .u-panel-body:after {
-  clear: both; }
-
-.u-search .u-panel-heading {
-  cursor: pointer; }
-
-.u-search .u-search-footer {
-  margin-top: 10px; }
-
-.u-search .u-search-footer > .u-button:nth-of-type(1) {
-  margin-right: 10px; }
-
-.u-search .u-search-footer > .u-button {
-  background: #fff;
-  color: #1e7be2; }
-
-.u-search .u-search-title {
-  float: left;
-  color: #424242; }
-
-.u-search .u-search-icon {
-  float: right;
-  color: #424242; }
+.u-search {
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+  background: #F7F9FB; }
+  .u-search-header {
+    color: #424242; }
+    .u-search-header > a {
+      overflow: hidden; }
+  .u-search-header-title {
+    float: left;
+    color: #434A54;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: 500; }
+    .u-search-header-title > i {
+      font-weight: 600; }
+  .u-search-header-oper {
+    float: right;
+    vertical-align: center;
+    line-height: 0; }
+    .u-search-header-oper .header-oper-btn {
+      display: inline-block;
+      width: 64px;
+      height: 26px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 26px;
+      border-radius: 3px;
+      margin-left: 8px;
+      cursor: pointer;
+      vertical-align: middle; }
+      .u-search-header-oper .header-oper-btn > i {
+        font-size: 12px;
+        padding-right: 0; }
+      .u-search-header-oper .header-oper-btn.primary {
+        background: #5E6C84;
+        color: #ffffff; }
+  .u-search.u-panel .u-panel-heading {
+    height: 48px;
+    padding: 11px 24px;
+    border: none;
+    background: transparent; }
+  .u-search.u-panel .u-panel-body {
+    background: transparent;
+    padding: 10px 24px; }
+  .u-search.u-panel .u-panel-collapse.collapsing {
+    width: 100%; }
 
 /* FormGroup */
 /*  Navlayout  */
@@ -6362,8 +6380,5 @@ input.u-button[type="submit"] {
 
 .u-panel-title {
   font-size: 14px !important; }
-
-.u-search .u-panel-heading {
-  border-bottom: 1px dashed #979797 !important; }
 
 /*# sourceMappingURL=demo.css.map */

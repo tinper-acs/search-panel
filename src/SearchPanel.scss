@@ -1,35 +1,68 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 .u-search {
-  .u-panel-heading{
-    cursor: pointer;
-    border-bottom: 1px dashed #979797;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+  background: #F7F9FB;
+
+  &-header {
+    color: #424242;
+    &>a {
+      overflow: hidden;
+    }
   }
-  .u-search-content{
-    border:none;
-  }
-  .u-search-content .u-panel-body:after {
-    clear: both;
-  }
-  .u-panel-heading{
-    cursor: pointer;
-  }
-  .u-search-footer{
-    margin-top:10px;
-  }
-  .u-search-footer>.u-button:nth-of-type(1){
-    margin-right: 10px;
-  }
-  .u-search-footer>.u-button{
-    background: #fff;
-    color: #1e7be2;
-  }
-  .u-search-title{
+  &-header-title {
     float: left;
-    color: #424242;
+    color: #434A54;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: 500;
+    &>i {
+      font-weight: 600;
+    }
   }
-  .u-search-icon{
+  &-header-oper {
     float: right;
-    color: #424242;
+    vertical-align: center;
+    line-height: 0;
+    .header-oper-btn {
+      display: inline-block;
+      width: 64px;
+      height: 26px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 26px;
+      border-radius: 3px;
+      margin-left: 8px;
+      cursor: pointer;
+      vertical-align: middle;
+      &>i {
+        font-size: 12px;
+        padding-right: 0;
+      }
+      &.primary {
+        background: #5E6C84;
+        color: #ffffff;
+      }
+    }
   }
+  &.u-panel {
+    .u-panel-heading {
+      height: 48px;
+      padding: 11px 24px;
+      border: none;
+      background: transparent;
+    }
+
+    .u-panel-body {
+      background: transparent;
+      padding: 10px 24px;
+    }
+    .u-panel-collapse.collapsing {
+      width: 100%;
+    }
+  }
+
 }
+
