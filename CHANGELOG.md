@@ -1,3 +1,8 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/tinper-bee/bee-search-panel/compare/v2.0.0...v2.0.1) (2019-02-19)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/tinper-bee/bee-search-panel/compare/v0.1.4...v2.0.0) (2019-02-19)
 
