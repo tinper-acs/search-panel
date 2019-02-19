@@ -2,7 +2,6 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 .u-search {
 
-
   &-header {
     color: #424242;
     &>a {
@@ -44,7 +43,7 @@
       }
     }
   }
-  &.u-panel {
+  .u-panel {
     border-radius: 0;
     border: none;
     margin-bottom: 0;

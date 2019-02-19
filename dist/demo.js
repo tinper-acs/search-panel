@@ -8065,9 +8065,10 @@
 	            className = _props.className,
 	            resetName = _props.resetName,
 	            searchName = _props.searchName,
-	            bgColor = _props.bgColor;
+	            bgColor = _props.bgColor,
+	            style = _props.style;
 	
-	
+	        var _stype = style || {};
 	        var PanelHeader = _react2['default'].createElement(
 	            'div',
 	            { className: clsPrefix + "-header" },
@@ -8110,19 +8111,22 @@
 	            )
 	        );
 	        return _react2['default'].createElement(
-	            _beePanel.Panel,
-	            {
-	                className: clsPrefix + ' ' + className,
-	                header: PanelHeader,
-	                collapsible: true,
-	                expanded: this.state.expanded,
-	                onExited: this._onPanelChange.bind(this, 0) //隐藏完成回调
-	                , onEntered: this._onPanelChange.bind(this, 1) //显示后回调
-	                , style: {
-	                    backgroundColor: bgColor
-	                }
-	            },
-	            children
+	            'div',
+	            { className: clsPrefix + ' ' + className, style: _stype },
+	            _react2['default'].createElement(
+	                _beePanel.Panel,
+	                {
+	                    header: PanelHeader,
+	                    collapsible: true,
+	                    expanded: this.state.expanded,
+	                    onExited: this._onPanelChange.bind(this, 0) //隐藏完成回调
+	                    , onEntered: this._onPanelChange.bind(this, 1) //显示后回调
+	                    , style: {
+	                        backgroundColor: bgColor
+	                    }
+	                },
+	                children
+	            )
 	        );
 	    };
 	

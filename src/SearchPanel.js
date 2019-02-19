@@ -82,8 +82,8 @@ class SearchPanel extends Component {
         }
     }
     render() {
-        const { children, clsPrefix, className, resetName, searchName, bgColor } = this.props;
-
+        const { children, clsPrefix, className, resetName, searchName, bgColor, style } = this.props;
+        const _stype = style || {};
         let PanelHeader = (
             <div className={clsPrefix + "-header"}>
                 <div className={clsPrefix + "-header-title"}>
@@ -110,19 +110,20 @@ class SearchPanel extends Component {
             </div>
         );
         return (
-            <Panel
-                className={clsPrefix + ' ' + className}
-                header={PanelHeader}
-                collapsible
-                expanded={this.state.expanded}
-                onExited={this._onPanelChange.bind(this, 0)}//隐藏完成回调
-                onEntered={this._onPanelChange.bind(this, 1)}//显示后回调
-                style={{
-                    backgroundColor: bgColor
-                }}
-            >
-                {children}
-            </Panel>
+            <div className={clsPrefix + ' ' + className} style={_stype}>
+                <Panel
+                    header={PanelHeader}
+                    collapsible
+                    expanded={this.state.expanded}
+                    onExited={this._onPanelChange.bind(this, 0)}//隐藏完成回调
+                    onEntered={this._onPanelChange.bind(this, 1)}//显示后回调
+                    style={{
+                        backgroundColor: bgColor
+                    }}
+                >
+                    {children}
+                </Panel>
+            </div>
 
         )
     }
