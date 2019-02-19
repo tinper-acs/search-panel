@@ -46,10 +46,10 @@ import "./node_modules/bee-search-panel/build/SearchPanel.css"
 |onChange|点击收起展开按钮的回调|function|-|
 |onSearch|点击搜索按钮的回调|function|-|
 |onReset|点击清空按钮的回调|function|-|
-|searchName|查询按钮的文字|string|'查询'|
-|resetName|清空按钮的文字|string|'清空'|
-|title|搜索面板名称|string|'默认筛选'|
-|onPanelChanged|面板展开或者隐藏后的回调(status)=>{//status="hide"||"visible"}|function|-|
+|searchName|查询按钮的文字|string|查询|
+|resetName|清空按钮的文字|string|清空|
+|title|搜索面板名称|string|默认筛选|
+|onPanelChanged|面板展开或者隐藏后的回调(status)=>{//status="hide"或"visible"}|function|-|
 |bgColor|面板背景颜色|string|"#F7F9FB"|
 
 #### 开发调试
