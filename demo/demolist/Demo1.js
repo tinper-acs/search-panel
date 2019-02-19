@@ -14,6 +14,7 @@ class Demo1 extends Component {
         super(props);
         this.state={
             state:'all',
+            expanded: true
         }
     }
     stateChange(value){
@@ -37,15 +38,18 @@ class Demo1 extends Component {
     clear(){
 
     }
+    onChange = () => {
+        this.setState({expanded: !this.state.expanded})
+    }
     render() {
 
         return (
             <SearchPanel
                 title='基础示例'
-
                 onSearch={this.search}
                 onReset={this.clear}
-                searchOpen={true}
+                expanded={this.state.expanded}
+                onChange={this.onChange}
             >
                 <div className="demo">
                     <div>

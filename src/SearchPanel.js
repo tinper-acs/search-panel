@@ -6,24 +6,26 @@ import PropTypes from 'prop-types';
 const emFun = () => {}
 
 const propTypes =  {
-    searchOpen: PropTypes.bool,//是否默认展开，false默认关闭
-        search: PropTypes.func,//查询的回调
-    reset: PropTypes.func,//重置的回调
+    defaultExpanded: PropTypes.bool,
+    expanded: PropTypes.bool,//是否默认展开，false默认关闭
+    onSearch: PropTypes.func,//查询的回调
+    onReset: PropTypes.func,//重置的回调
     resetName: PropTypes.string,//重置的文字
     searchName: PropTypes.string,//查询的文字
-    title: PropTypes.string
+    title: PropTypes.string,
+    onPanelChanged: PropTypes.func,
+    onChange: PropTypes.func
 };
 
 const defaultProps = {
     className: "",
     clsPrefix: 'u-search',
-    searchOpen: true,
-    onSearch: emFun,
-    onReset: emFun,
+    defaultExpanded: false,
     title: "默认筛选",
-    resetName: "清除查询",
+    resetName: "清空",
     searchName: "查询",
-    bgColor: "#F7F9FB"
+    bgColor: "#F7F9FB",
+
 };
 
 
@@ -31,17 +33,31 @@ class SearchPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchOpen: props.searchOpen
+            expanded: props.expanded || props.defaultExpanded
         };
     }
-    componentDidMount() {
 
+    componentWillReceiveProps(nextProps) {
+        if ('expanded' in nextProps) {
+            this.setState({expanded: nextProps.expanded})
+        }
     }
 
-    open = () => {
+    changeExpanded = () => {
         this.setState({
-            searchOpen: !this.state.searchOpen
+            expanded: !this.state.expanded
         })
+    }
+
+
+    _onChange = () => {
+        const { onChange } = this.props;
+        if ('expanded' in this.props) {
+            this.setState({expanded: this.props.expanded})
+        } else {
+            this.setState({expanded: !this.state.expanded})
+        }
+        onChange && onChange()
     }
 
     search = () => {
@@ -52,8 +68,21 @@ class SearchPanel extends Component {
         const { onReset } = this.props;
         onReset && onReset();
     }
+
+    _onPanelChange = (type) => {
+        const { onPanelChanged } = this.props;
+        if (onPanelChanged) {
+            let status = "";
+            if (type === 0) {
+                status = "hide"
+            } else if (type === 1) {
+                status = 'visible'
+            }
+            onPanelChanged(status)
+        }
+    }
     render() {
-        const { children, clsPrefix, className, resetName, searchName, onCallback, bgColor } = this.props;
+        const { children, clsPrefix, className, resetName, searchName, bgColor } = this.props;
 
         let PanelHeader = (
             <div className={clsPrefix + "-header"}>
@@ -66,13 +95,13 @@ class SearchPanel extends Component {
                     <a
                         className="header-oper-btn"
                         role="button"
-                        onClick={this.open}
+                        onClick={this._onChange}
                     >
-                        {this.state.searchOpen ? '收起' : '展开'}
+                        {this.state.expanded ? '收起' : '展开'}
                         <i className={classnames({
                             'uf': true,
-                            'uf-arrow-down': !this.state.searchOpen,
-                            'uf-arrow-up': this.state.searchOpen
+                            'uf-arrow-down': !this.state.expanded,
+                            'uf-arrow-up': this.state.expanded
                         })} />
                     </a>
                     <a className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</a>
@@ -85,10 +114,9 @@ class SearchPanel extends Component {
                 className={clsPrefix + ' ' + className}
                 header={PanelHeader}
                 collapsible
-
-                expanded={this.state.searchOpen}
-                onExited={() => onCallback && onCallback(false)}//隐藏完成回调
-                onEntered={() => onCallback && onCallback(true)}//显示后回调
+                expanded={this.state.expanded}
+                onExited={this._onPanelChange.bind(this, 0)}//隐藏完成回调
+                onEntered={this._onPanelChange.bind(this, 1)}//显示后回调
                 style={{
                     backgroundColor: bgColor
                 }}

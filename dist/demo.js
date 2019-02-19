@@ -80,7 +80,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n\n                onSearch={this.search}\n                onReset={this.clear}\n                searchOpen={true}\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
+	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n            expanded: true\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    onChange = () => {\n        this.setState({expanded: !this.state.expanded})\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n                onSearch={this.search}\n                onReset={this.clear}\n                expanded={this.state.expanded}\n                onChange={this.onChange}\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -7973,24 +7973,26 @@
 	var emFun = function emFun() {};
 	
 	var propTypes = {
-	    searchOpen: _propTypes2['default'].bool, //是否默认展开，false默认关闭
-	    search: _propTypes2['default'].func, //查询的回调
-	    reset: _propTypes2['default'].func, //重置的回调
+	    defaultExpanded: _propTypes2['default'].bool,
+	    expanded: _propTypes2['default'].bool, //是否默认展开，false默认关闭
+	    onSearch: _propTypes2['default'].func, //查询的回调
+	    onReset: _propTypes2['default'].func, //重置的回调
 	    resetName: _propTypes2['default'].string, //重置的文字
 	    searchName: _propTypes2['default'].string, //查询的文字
-	    title: _propTypes2['default'].string
+	    title: _propTypes2['default'].string,
+	    onPanelChanged: _propTypes2['default'].func,
+	    onChange: _propTypes2['default'].func
 	};
 	
 	var defaultProps = {
 	    className: "",
 	    clsPrefix: 'u-search',
-	    searchOpen: true,
-	    onSearch: emFun,
-	    onReset: emFun,
+	    defaultExpanded: false,
 	    title: "默认筛选",
-	    resetName: "清除查询",
+	    resetName: "清空",
 	    searchName: "查询",
 	    bgColor: "#F7F9FB"
+	
 	};
 	
 	var SearchPanel = function (_Component) {
@@ -8001,10 +8003,21 @@
 	
 	        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 	
-	        _this.open = function () {
+	        _this.changeExpanded = function () {
 	            _this.setState({
-	                searchOpen: !_this.state.searchOpen
+	                expanded: !_this.state.expanded
 	            });
+	        };
+	
+	        _this._onChange = function () {
+	            var onChange = _this.props.onChange;
+	
+	            if ('expanded' in _this.props) {
+	                _this.setState({ expanded: _this.props.expanded });
+	            } else {
+	                _this.setState({ expanded: !_this.state.expanded });
+	            }
+	            onChange && onChange();
 	        };
 	
 	        _this.search = function () {
@@ -8019,13 +8032,31 @@
 	            onReset && onReset();
 	        };
 	
+	        _this._onPanelChange = function (type) {
+	            var onPanelChanged = _this.props.onPanelChanged;
+	
+	            if (onPanelChanged) {
+	                var status = "";
+	                if (type === 0) {
+	                    status = "hide";
+	                } else if (type === 1) {
+	                    status = 'visible';
+	                }
+	                onPanelChanged(status);
+	            }
+	        };
+	
 	        _this.state = {
-	            searchOpen: props.searchOpen
+	            expanded: props.expanded || props.defaultExpanded
 	        };
 	        return _this;
 	    }
 	
-	    SearchPanel.prototype.componentDidMount = function componentDidMount() {};
+	    SearchPanel.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if ('expanded' in nextProps) {
+	            this.setState({ expanded: nextProps.expanded });
+	        }
+	    };
 	
 	    SearchPanel.prototype.render = function render() {
 	        var _props = this.props,
@@ -8034,7 +8065,6 @@
 	            className = _props.className,
 	            resetName = _props.resetName,
 	            searchName = _props.searchName,
-	            onCallback = _props.onCallback,
 	            bgColor = _props.bgColor;
 	
 	
@@ -8058,13 +8088,13 @@
 	                    {
 	                        className: 'header-oper-btn',
 	                        role: 'button',
-	                        onClick: this.open
+	                        onClick: this._onChange
 	                    },
-	                    this.state.searchOpen ? '收起' : '展开',
+	                    this.state.expanded ? '收起' : '展开',
 	                    _react2['default'].createElement('i', { className: (0, _classnames2['default'])({
 	                            'uf': true,
-	                            'uf-arrow-down': !this.state.searchOpen,
-	                            'uf-arrow-up': this.state.searchOpen
+	                            'uf-arrow-down': !this.state.expanded,
+	                            'uf-arrow-up': this.state.expanded
 	                        }) })
 	                ),
 	                _react2['default'].createElement(
@@ -8085,14 +8115,9 @@
 	                className: clsPrefix + ' ' + className,
 	                header: PanelHeader,
 	                collapsible: true,
-	
-	                expanded: this.state.searchOpen,
-	                onExited: function onExited() {
-	                    return onCallback && onCallback(false);
-	                } //隐藏完成回调
-	                , onEntered: function onEntered() {
-	                    return onCallback && onCallback(true);
-	                } //显示后回调
+	                expanded: this.state.expanded,
+	                onExited: this._onPanelChange.bind(this, 0) //隐藏完成回调
+	                , onEntered: this._onPanelChange.bind(this, 1) //显示后回调
 	                , style: {
 	                    backgroundColor: bgColor
 	                }
@@ -8153,8 +8178,13 @@
 	
 	        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 	
+	        _this.onChange = function () {
+	            _this.setState({ expanded: !_this.state.expanded });
+	        };
+	
 	        _this.state = {
-	            state: 'all'
+	            state: 'all',
+	            expanded: true
 	        };
 	        return _this;
 	    }
@@ -8187,10 +8217,10 @@
 	            _src2['default'],
 	            {
 	                title: '\u57FA\u7840\u793A\u4F8B',
-	
 	                onSearch: this.search,
 	                onReset: this.clear,
-	                searchOpen: true
+	                expanded: this.state.expanded,
+	                onChange: this.onChange
 	            },
 	            _react2['default'].createElement(
 	                'div',
