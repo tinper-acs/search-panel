@@ -50,6 +50,16 @@ class Demo1 extends Component {
                 onReset={this.clear}
                 expanded={this.state.expanded}
                 onChange={this.onChange}
+                onPanelChangeStart={status => {
+                    console.log(status, "start")
+                }}
+                onPanelChangeIng={status => {
+                    console.log(status, "ing")
+                }}
+                onPanelChangeEnd={status => {
+                    console.log(status, "end")
+                }}
+
             >
                 <div className="demo">
                     <div>

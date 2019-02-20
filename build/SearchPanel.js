@@ -33,13 +33,15 @@ var emFun = function emFun() {};
 var propTypes = {
     defaultExpanded: _propTypes2["default"].bool,
     expanded: _propTypes2["default"].bool, //是否默认展开，false默认关闭
-    onSearch: _propTypes2["default"].func, //查询的回调
-    onReset: _propTypes2["default"].func, //重置的回调
+    onSearch: _propTypes2["default"].func, //点击查询的回调
+    onReset: _propTypes2["default"].func, //点击重置的回调
     resetName: _propTypes2["default"].string, //重置的文字
     searchName: _propTypes2["default"].string, //查询的文字
     title: _propTypes2["default"].string,
-    onPanelChanged: _propTypes2["default"].func,
-    onChange: _propTypes2["default"].func
+    onPanelChangeStart: _propTypes2["default"].func, //显示或隐藏开始回调
+    onPanelChangeIng: _propTypes2["default"].func, //显示或隐藏进行中回调
+    onPanelChangeEnd: _propTypes2["default"].func, //显示或隐藏结束回调
+    onChange: _propTypes2["default"].func //点击显示或隐藏回调
 };
 
 var defaultProps = {
@@ -90,18 +92,34 @@ var SearchPanel = function (_Component) {
             onReset && onReset();
         };
 
-        _this._onPanelChange = function (type) {
-            var onPanelChanged = _this.props.onPanelChanged;
-
-            if (onPanelChanged) {
+        _this._onPanelChange = function (type, func) {
+            if (func) {
                 var status = "";
                 if (type === 0) {
                     status = "hide";
                 } else if (type === 1) {
                     status = 'visible';
                 }
-                onPanelChanged(status);
+                func(status);
             }
+        };
+
+        _this._onPanelChangeStart = function (type) {
+            var onPanelChangeStart = _this.props.onPanelChangeStart;
+
+            onPanelChangeStart && _this._onPanelChange(type, onPanelChangeStart);
+        };
+
+        _this._onPanelChangeIng = function (type) {
+            var onPanelChangeIng = _this.props.onPanelChangeIng;
+
+            onPanelChangeIng && _this._onPanelChange(type, onPanelChangeIng);
+        };
+
+        _this._onPanelChangeEnd = function (type) {
+            var onPanelChangeEnd = _this.props.onPanelChangeEnd;
+
+            onPanelChangeEnd && _this._onPanelChange(type, onPanelChangeEnd);
         };
 
         _this.state = {
@@ -177,8 +195,12 @@ var SearchPanel = function (_Component) {
                     header: PanelHeader,
                     collapsible: true,
                     expanded: this.state.expanded,
-                    onExited: this._onPanelChange.bind(this, 0) //隐藏完成回调
-                    , onEntered: this._onPanelChange.bind(this, 1) //显示后回调
+                    onExit: this._onPanelChangeStart.bind(this, 0) //隐藏开始回调
+                    , onEnter: this._onPanelChangeStart.bind(this, 1) //显示开始回调
+                    , onExiting: this._onPanelChangeIng.bind(this, 0) //隐藏进行中回调
+                    , onEntering: this._onPanelChangeIng.bind(this, 1) //显示进行中回调
+                    , onExited: this._onPanelChangeEnd.bind(this, 0) //隐藏完成回调
+                    , onEntered: this._onPanelChangeEnd.bind(this, 1) //显示后回调
                     , style: {
                         backgroundColor: bgColor
                     }

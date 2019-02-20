@@ -80,7 +80,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n            expanded: true\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    onChange = () => {\n        this.setState({expanded: !this.state.expanded})\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n                onSearch={this.search}\n                onReset={this.clear}\n                expanded={this.state.expanded}\n                onChange={this.onChange}\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
+	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n            expanded: true\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    onChange = () => {\n        this.setState({expanded: !this.state.expanded})\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n                onSearch={this.search}\n                onReset={this.clear}\n                expanded={this.state.expanded}\n                onChange={this.onChange}\n                onPanelChangeStart={status => {\n                    console.log(status, \"start\")\n                }}\n                onPanelChangeIng={status => {\n                    console.log(status, \"ing\")\n                }}\n                onPanelChangeEnd={status => {\n                    console.log(status, \"end\")\n                }}\n\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -7975,13 +7975,15 @@
 	var propTypes = {
 	    defaultExpanded: _propTypes2['default'].bool,
 	    expanded: _propTypes2['default'].bool, //是否默认展开，false默认关闭
-	    onSearch: _propTypes2['default'].func, //查询的回调
-	    onReset: _propTypes2['default'].func, //重置的回调
+	    onSearch: _propTypes2['default'].func, //点击查询的回调
+	    onReset: _propTypes2['default'].func, //点击重置的回调
 	    resetName: _propTypes2['default'].string, //重置的文字
 	    searchName: _propTypes2['default'].string, //查询的文字
 	    title: _propTypes2['default'].string,
-	    onPanelChanged: _propTypes2['default'].func,
-	    onChange: _propTypes2['default'].func
+	    onPanelChangeStart: _propTypes2['default'].func, //显示或隐藏开始回调
+	    onPanelChangeIng: _propTypes2['default'].func, //显示或隐藏进行中回调
+	    onPanelChangeEnd: _propTypes2['default'].func, //显示或隐藏结束回调
+	    onChange: _propTypes2['default'].func //点击显示或隐藏回调
 	};
 	
 	var defaultProps = {
@@ -8032,18 +8034,34 @@
 	            onReset && onReset();
 	        };
 	
-	        _this._onPanelChange = function (type) {
-	            var onPanelChanged = _this.props.onPanelChanged;
-	
-	            if (onPanelChanged) {
+	        _this._onPanelChange = function (type, func) {
+	            if (func) {
 	                var status = "";
 	                if (type === 0) {
 	                    status = "hide";
 	                } else if (type === 1) {
 	                    status = 'visible';
 	                }
-	                onPanelChanged(status);
+	                func(status);
 	            }
+	        };
+	
+	        _this._onPanelChangeStart = function (type) {
+	            var onPanelChangeStart = _this.props.onPanelChangeStart;
+	
+	            onPanelChangeStart && _this._onPanelChange(type, onPanelChangeStart);
+	        };
+	
+	        _this._onPanelChangeIng = function (type) {
+	            var onPanelChangeIng = _this.props.onPanelChangeIng;
+	
+	            onPanelChangeIng && _this._onPanelChange(type, onPanelChangeIng);
+	        };
+	
+	        _this._onPanelChangeEnd = function (type) {
+	            var onPanelChangeEnd = _this.props.onPanelChangeEnd;
+	
+	            onPanelChangeEnd && _this._onPanelChange(type, onPanelChangeEnd);
 	        };
 	
 	        _this.state = {
@@ -8119,8 +8137,12 @@
 	                    header: PanelHeader,
 	                    collapsible: true,
 	                    expanded: this.state.expanded,
-	                    onExited: this._onPanelChange.bind(this, 0) //隐藏完成回调
-	                    , onEntered: this._onPanelChange.bind(this, 1) //显示后回调
+	                    onExit: this._onPanelChangeStart.bind(this, 0) //隐藏开始回调
+	                    , onEnter: this._onPanelChangeStart.bind(this, 1) //显示开始回调
+	                    , onExiting: this._onPanelChangeIng.bind(this, 0) //隐藏进行中回调
+	                    , onEntering: this._onPanelChangeIng.bind(this, 1) //显示进行中回调
+	                    , onExited: this._onPanelChangeEnd.bind(this, 0) //隐藏完成回调
+	                    , onEntered: this._onPanelChangeEnd.bind(this, 1) //显示后回调
 	                    , style: {
 	                        backgroundColor: bgColor
 	                    }
@@ -8224,7 +8246,17 @@
 	                onSearch: this.search,
 	                onReset: this.clear,
 	                expanded: this.state.expanded,
-	                onChange: this.onChange
+	                onChange: this.onChange,
+	                onPanelChangeStart: function onPanelChangeStart(status) {
+	                    console.log(status, "start");
+	                },
+	                onPanelChangeIng: function onPanelChangeIng(status) {
+	                    console.log(status, "ing");
+	                },
+	                onPanelChangeEnd: function onPanelChangeEnd(status) {
+	                    console.log(status, "end");
+	                }
+	
 	            },
 	            _react2['default'].createElement(
 	                'div',
