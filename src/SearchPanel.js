@@ -97,6 +97,7 @@ class SearchPanel extends Component {
     }
     render() {
         const { children, clsPrefix, className, resetName, searchName, bgColor, style } = this.props;
+        const { expanded } = this.state;
         const _stype = style || {};
         let PanelHeader = (
             <div className={clsPrefix + "-header"}>
@@ -106,20 +107,20 @@ class SearchPanel extends Component {
                 </div>
 
                 <div className={clsPrefix + "-header-oper"}>
+                    {expanded ? <a className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</a> : null}
+                    {expanded ? <a className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</a> : null}
                     <a
                         className="header-oper-btn"
                         role="button"
                         onClick={this._onChange}
                     >
-                        {this.state.expanded ? '收起' : '展开'}
+                        {expanded ? '收起' : '展开'}
                         <i className={classnames({
                             'uf': true,
-                            'uf-arrow-down': !this.state.expanded,
-                            'uf-arrow-up': this.state.expanded
+                            'uf-arrow-down': !expanded,
+                            'uf-arrow-up': expanded
                         })} />
                     </a>
-                    <a className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</a>
-                    <a className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</a>
                 </div>
             </div>
         );

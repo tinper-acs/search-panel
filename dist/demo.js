@@ -8085,6 +8085,7 @@
 	            searchName = _props.searchName,
 	            bgColor = _props.bgColor,
 	            style = _props.style;
+	        var expanded = this.state.expanded;
 	
 	        var _stype = style || {};
 	        var PanelHeader = _react2['default'].createElement(
@@ -8102,6 +8103,16 @@
 	            _react2['default'].createElement(
 	                'div',
 	                { className: clsPrefix + "-header-oper" },
+	                expanded ? _react2['default'].createElement(
+	                    'a',
+	                    { className: 'header-oper-btn', role: 'button', onClick: this.reset },
+	                    resetName
+	                ) : null,
+	                expanded ? _react2['default'].createElement(
+	                    'a',
+	                    { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
+	                    searchName
+	                ) : null,
 	                _react2['default'].createElement(
 	                    'a',
 	                    {
@@ -8109,22 +8120,12 @@
 	                        role: 'button',
 	                        onClick: this._onChange
 	                    },
-	                    this.state.expanded ? '收起' : '展开',
+	                    expanded ? '收起' : '展开',
 	                    _react2['default'].createElement('i', { className: (0, _classnames2['default'])({
 	                            'uf': true,
-	                            'uf-arrow-down': !this.state.expanded,
-	                            'uf-arrow-up': this.state.expanded
+	                            'uf-arrow-down': !expanded,
+	                            'uf-arrow-up': expanded
 	                        }) })
-	                ),
-	                _react2['default'].createElement(
-	                    'a',
-	                    { className: 'header-oper-btn', role: 'button', onClick: this.reset },
-	                    resetName
-	                ),
-	                _react2['default'].createElement(
-	                    'a',
-	                    { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
-	                    searchName
 	                )
 	            )
 	        );
