@@ -8104,17 +8104,17 @@
 	                'div',
 	                { className: clsPrefix + "-header-oper" },
 	                expanded ? _react2['default'].createElement(
-	                    'a',
+	                    'span',
 	                    { className: 'header-oper-btn', role: 'button', onClick: this.reset },
 	                    resetName
 	                ) : null,
 	                expanded ? _react2['default'].createElement(
-	                    'a',
+	                    'span',
 	                    { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
 	                    searchName
 	                ) : null,
 	                _react2['default'].createElement(
-	                    'a',
+	                    'span',
 	                    {
 	                        className: 'header-oper-btn',
 	                        role: 'button',

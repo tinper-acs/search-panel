@@ -107,9 +107,9 @@ class SearchPanel extends Component {
                 </div>
 
                 <div className={clsPrefix + "-header-oper"}>
-                    {expanded ? <a className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</a> : null}
-                    {expanded ? <a className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</a> : null}
-                    <a
+                    {expanded ? <span className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</span> : null}
+                    {expanded ? <span className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</span> : null}
+                    <span
                         className="header-oper-btn"
                         role="button"
                         onClick={this._onChange}
@@ -120,7 +120,7 @@ class SearchPanel extends Component {
                             'uf-arrow-down': !expanded,
                             'uf-arrow-up': expanded
                         })} />
-                    </a>
+                    </span>
                 </div>
             </div>
         );
