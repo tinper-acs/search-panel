@@ -8116,7 +8116,7 @@
 	                        { className: 'header-oper-btn', role: 'button', onClick: this.reset },
 	                        resetName
 	                    ) : null,
-	                    expanded ? _react2['default'].createElement(
+	                    !!resident || expanded ? _react2['default'].createElement(
 	                        'span',
 	                        { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
 	                        searchName
