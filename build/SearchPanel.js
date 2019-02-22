@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -41,7 +43,8 @@ var propTypes = {
     onPanelChangeStart: _propTypes2["default"].func, //显示或隐藏开始回调
     onPanelChangeIng: _propTypes2["default"].func, //显示或隐藏进行中回调
     onPanelChangeEnd: _propTypes2["default"].func, //显示或隐藏结束回调
-    onChange: _propTypes2["default"].func //点击显示或隐藏回调
+    onChange: _propTypes2["default"].func, //点击显示或隐藏回调
+    resident: _propTypes2["default"].node //常驻面板内容，不会隐藏
 };
 
 var defaultProps = {
@@ -142,58 +145,64 @@ var SearchPanel = function (_Component) {
             resetName = _props.resetName,
             searchName = _props.searchName,
             bgColor = _props.bgColor,
-            style = _props.style;
+            style = _props.style,
+            resident = _props.resident;
         var expanded = this.state.expanded;
 
         var _stype = style || {};
-        var PanelHeader = _react2["default"].createElement(
-            'div',
-            { className: clsPrefix + "-header" },
-            _react2["default"].createElement(
-                'div',
-                { className: clsPrefix + "-header-title" },
-                _react2["default"].createElement(
-                    'span',
-                    null,
-                    this.props.title
-                )
-            ),
-            _react2["default"].createElement(
-                'div',
-                { className: clsPrefix + "-header-oper" },
-                expanded ? _react2["default"].createElement(
-                    'span',
-                    { className: 'header-oper-btn', role: 'button', onClick: this.reset },
-                    resetName
-                ) : null,
-                expanded ? _react2["default"].createElement(
-                    'span',
-                    { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
-                    searchName
-                ) : null,
-                _react2["default"].createElement(
-                    'span',
-                    {
-                        className: 'header-oper-btn',
-                        role: 'button',
-                        onClick: this._onChange
-                    },
-                    expanded ? '收起' : '展开',
-                    _react2["default"].createElement('i', { className: (0, _classnames2["default"])({
-                            'uf': true,
-                            'uf-arrow-down': !expanded,
-                            'uf-arrow-up': expanded
-                        }) })
-                )
-            )
-        );
         return _react2["default"].createElement(
             'div',
-            { className: clsPrefix + ' ' + className, style: _stype },
+            { className: clsPrefix + ' ' + className,
+                style: _extends({ background: bgColor }, _stype) },
+            _react2["default"].createElement(
+                'div',
+                { className: clsPrefix + "-header" },
+                _react2["default"].createElement(
+                    'div',
+                    { className: clsPrefix + "-header-title" },
+                    _react2["default"].createElement(
+                        'span',
+                        null,
+                        this.props.title
+                    )
+                ),
+                _react2["default"].createElement(
+                    'div',
+                    { className: clsPrefix + "-header-oper" },
+                    expanded ? _react2["default"].createElement(
+                        'span',
+                        { className: 'header-oper-btn', role: 'button', onClick: this.reset },
+                        resetName
+                    ) : null,
+                    expanded ? _react2["default"].createElement(
+                        'span',
+                        { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
+                        searchName
+                    ) : null,
+                    _react2["default"].createElement(
+                        'span',
+                        {
+                            className: 'header-oper-btn',
+                            role: 'button',
+                            onClick: this._onChange
+                        },
+                        expanded ? '收起' : '展开',
+                        _react2["default"].createElement('i', { className: (0, _classnames2["default"])({
+                                'uf': true,
+                                'uf-arrow-down': !expanded,
+                                'uf-arrow-up': expanded
+                            }) })
+                    )
+                )
+            ),
+            resident ? _react2["default"].createElement(
+                'div',
+                { className: clsPrefix + '-resident' },
+                resident
+            ) : null,
             _react2["default"].createElement(
                 _beePanel.Panel,
                 {
-                    header: PanelHeader,
                     collapsible: true,
                     expanded: this.state.expanded,
                     onExit: this._onPanelChangeStart.bind(this, 0) //隐藏开始回调
@@ -202,9 +211,6 @@ var SearchPanel = function (_Component) {
                     , onEntering: this._onPanelChangeIng.bind(this, 1) //显示进行中回调
                     , onExited: this._onPanelChangeEnd.bind(this, 0) //隐藏完成回调
                     , onEntered: this._onPanelChangeEnd.bind(this, 1) //显示后回调
-                    , style: {
-                        backgroundColor: bgColor
-                    }
                 },
                 children
             )

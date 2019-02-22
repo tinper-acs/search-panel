@@ -16,7 +16,8 @@ const propTypes =  {
     onPanelChangeStart: PropTypes.func,//显示或隐藏开始回调
     onPanelChangeIng: PropTypes.func,//显示或隐藏进行中回调
     onPanelChangeEnd: PropTypes.func,//显示或隐藏结束回调
-    onChange: PropTypes.func//点击显示或隐藏回调
+    onChange: PropTypes.func,//点击显示或隐藏回调
+    resident: PropTypes.node //常驻面板内容，不会隐藏
 };
 
 const defaultProps = {
@@ -96,38 +97,42 @@ class SearchPanel extends Component {
         onPanelChangeEnd && this._onPanelChange(type, onPanelChangeEnd)
     }
     render() {
-        const { children, clsPrefix, className, resetName, searchName, bgColor, style } = this.props;
+        const { children, clsPrefix, className, resetName, searchName, bgColor, style, resident } = this.props;
         const { expanded } = this.state;
         const _stype = style || {};
-        let PanelHeader = (
-            <div className={clsPrefix + "-header"}>
-                <div className={clsPrefix + "-header-title"}>
-                    <span>{this.props.title}</span>
-                    {/*<Icon type="uf-arrow-c-o-down"/>*/}
+        return (
+            <div className={clsPrefix + ' ' + className}
+                 style={{background: bgColor, ..._stype}}>
+                <div className={clsPrefix + "-header"}>
+                    <div className={clsPrefix + "-header-title"}>
+                        <span>{this.props.title}</span>
+                        {/*<Icon type="uf-arrow-c-o-down"/>*/}
+                    </div>
+
+                    <div className={clsPrefix + "-header-oper"}>
+                        {expanded ? <span className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</span> : null}
+                        {expanded ? <span className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</span> : null}
+                        <span
+                            className="header-oper-btn"
+                            role="button"
+                            onClick={this._onChange}
+                        >
+                        {expanded ? '收起' : '展开'}
+                            <i className={classnames({
+                                'uf': true,
+                                'uf-arrow-down': !expanded,
+                                'uf-arrow-up': expanded
+                            })} />
+                    </span>
+                    </div>
                 </div>
 
-                <div className={clsPrefix + "-header-oper"}>
-                    {expanded ? <span className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</span> : null}
-                    {expanded ? <span className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</span> : null}
-                    <span
-                        className="header-oper-btn"
-                        role="button"
-                        onClick={this._onChange}
-                    >
-                        {expanded ? '收起' : '展开'}
-                        <i className={classnames({
-                            'uf': true,
-                            'uf-arrow-down': !expanded,
-                            'uf-arrow-up': expanded
-                        })} />
-                    </span>
-                </div>
-            </div>
-        );
-        return (
-            <div className={clsPrefix + ' ' + className} style={_stype}>
+                {resident ? (
+                    <div className={clsPrefix + '-resident'}>
+                        {resident}
+                    </div>
+                ) : null}
                 <Panel
-                    header={PanelHeader}
                     collapsible
                     expanded={this.state.expanded}
                     onExit={this._onPanelChangeStart.bind(this, 0)}//隐藏开始回调
@@ -136,9 +141,6 @@ class SearchPanel extends Component {
                     onEntering={this._onPanelChangeIng.bind(this, 1)}//显示进行中回调
                     onExited={this._onPanelChangeEnd.bind(this, 0)}//隐藏完成回调
                     onEntered={this._onPanelChangeEnd.bind(this, 1)}//显示后回调
-                    style={{
-                        backgroundColor: bgColor
-                    }}
                 >
                     {children}
                 </Panel>

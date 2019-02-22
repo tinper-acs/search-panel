@@ -80,7 +80,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n            expanded: true\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    onChange = () => {\n        this.setState({expanded: !this.state.expanded})\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n                onSearch={this.search}\n                onReset={this.clear}\n                expanded={this.state.expanded}\n                onChange={this.onChange}\n                onPanelChangeStart={status => {\n                    console.log(status, \"start\")\n                }}\n                onPanelChangeIng={status => {\n                    console.log(status, \"ing\")\n                }}\n                onPanelChangeEnd={status => {\n                    console.log(status, \"end\")\n                }}\n\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
+	var Demo1 = __webpack_require__(86);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础示例", "code": "/**\n *\n * @title 基础示例\n * @description 基础示例\n *\n */\nimport React, {Component} from 'react';\nimport { SearchPanel } from 'tinper-bee';\nimport {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            state:'all',\n            expanded: true\n        }\n    }\n    stateChange(value){\n        this.setState({\n            state:value\n        })\n    }\n    typeChange(value){\n        this.setState({\n            type:value\n        })\n    }\n    degreeChange(value){\n        this.setState({\n            degree:value\n        })\n    }\n    search(){\n\n    }\n    clear(){\n\n    }\n    onChange = () => {\n        this.setState({expanded: !this.state.expanded})\n    }\n    render() {\n\n        return (\n            <SearchPanel\n                title='基础示例'\n                onSearch={this.search}\n                onReset={this.clear}\n                expanded={this.state.expanded}\n                onChange={this.onChange}\n                onPanelChangeStart={status => {\n                    console.log(status, \"start\")\n                }}\n                onPanelChangeIng={status => {\n                    console.log(status, \"ing\")\n                }}\n                onPanelChangeEnd={status => {\n                    console.log(status, \"end\")\n                }}\n                resident={\n                    <div className='demo'>\n                        <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                            <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                        </div>\n                    </div>\n                }\n            >\n                <div className=\"demo\">\n                    <div>\n                        <label className=\"demo-label\">状态:</label>\n                        <Radio.RadioGroup\n                            name=\"state\"\n                            selectedValue={this.state.state}\n                            onChange={this.stateChange.bind(this)}>\n                            <Radio.RadioButton value=\"all\">全部</Radio.RadioButton>\n                            <Radio.RadioButton value=\"initial\">初始化</Radio.RadioButton>\n                            <Radio.RadioButton value=\"todo\">待处理</Radio.RadioButton>\n                            <Radio.RadioButton value=\"doing\">处理中</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"done\">已完成</Radio.RadioButton>\n                            <Radio.RadioButton  value=\"closed\">已完成</Radio.RadioButton>\n                        </Radio.RadioGroup>\n                    </div>\n\n                    <div className=\"margin-top-10\">\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">名称:</label>\n                            <FormControl placeholder=\"请输入名称\"/>\n                        </span>\n                        <span className=\"demo-item\">\n                            <label className=\"demo-label\">编码:</label>\n                            <FormControl placeholder=\"请输入编码\"/>\n                        </span>\n                    </div>\n                </div>\n            </SearchPanel>\n        )\n    }\n}\n", "desc": " 基础示例" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -7946,6 +7946,8 @@
 	    value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(4);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -7983,7 +7985,8 @@
 	    onPanelChangeStart: _propTypes2['default'].func, //显示或隐藏开始回调
 	    onPanelChangeIng: _propTypes2['default'].func, //显示或隐藏进行中回调
 	    onPanelChangeEnd: _propTypes2['default'].func, //显示或隐藏结束回调
-	    onChange: _propTypes2['default'].func //点击显示或隐藏回调
+	    onChange: _propTypes2['default'].func, //点击显示或隐藏回调
+	    resident: _propTypes2['default'].node //常驻面板内容，不会隐藏
 	};
 	
 	var defaultProps = {
@@ -8084,58 +8087,64 @@
 	            resetName = _props.resetName,
 	            searchName = _props.searchName,
 	            bgColor = _props.bgColor,
-	            style = _props.style;
+	            style = _props.style,
+	            resident = _props.resident;
 	        var expanded = this.state.expanded;
 	
 	        var _stype = style || {};
-	        var PanelHeader = _react2['default'].createElement(
-	            'div',
-	            { className: clsPrefix + "-header" },
-	            _react2['default'].createElement(
-	                'div',
-	                { className: clsPrefix + "-header-title" },
-	                _react2['default'].createElement(
-	                    'span',
-	                    null,
-	                    this.props.title
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                'div',
-	                { className: clsPrefix + "-header-oper" },
-	                expanded ? _react2['default'].createElement(
-	                    'span',
-	                    { className: 'header-oper-btn', role: 'button', onClick: this.reset },
-	                    resetName
-	                ) : null,
-	                expanded ? _react2['default'].createElement(
-	                    'span',
-	                    { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
-	                    searchName
-	                ) : null,
-	                _react2['default'].createElement(
-	                    'span',
-	                    {
-	                        className: 'header-oper-btn',
-	                        role: 'button',
-	                        onClick: this._onChange
-	                    },
-	                    expanded ? '收起' : '展开',
-	                    _react2['default'].createElement('i', { className: (0, _classnames2['default'])({
-	                            'uf': true,
-	                            'uf-arrow-down': !expanded,
-	                            'uf-arrow-up': expanded
-	                        }) })
-	                )
-	            )
-	        );
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: clsPrefix + ' ' + className, style: _stype },
+	            { className: clsPrefix + ' ' + className,
+	                style: _extends({ background: bgColor }, _stype) },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: clsPrefix + "-header" },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: clsPrefix + "-header-title" },
+	                    _react2['default'].createElement(
+	                        'span',
+	                        null,
+	                        this.props.title
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: clsPrefix + "-header-oper" },
+	                    expanded ? _react2['default'].createElement(
+	                        'span',
+	                        { className: 'header-oper-btn', role: 'button', onClick: this.reset },
+	                        resetName
+	                    ) : null,
+	                    expanded ? _react2['default'].createElement(
+	                        'span',
+	                        { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
+	                        searchName
+	                    ) : null,
+	                    _react2['default'].createElement(
+	                        'span',
+	                        {
+	                            className: 'header-oper-btn',
+	                            role: 'button',
+	                            onClick: this._onChange
+	                        },
+	                        expanded ? '收起' : '展开',
+	                        _react2['default'].createElement('i', { className: (0, _classnames2['default'])({
+	                                'uf': true,
+	                                'uf-arrow-down': !expanded,
+	                                'uf-arrow-up': expanded
+	                            }) })
+	                    )
+	                )
+	            ),
+	            resident ? _react2['default'].createElement(
+	                'div',
+	                { className: clsPrefix + '-resident' },
+	                resident
+	            ) : null,
 	            _react2['default'].createElement(
 	                _beePanel.Panel,
 	                {
-	                    header: PanelHeader,
 	                    collapsible: true,
 	                    expanded: this.state.expanded,
 	                    onExit: this._onPanelChangeStart.bind(this, 0) //隐藏开始回调
@@ -8144,9 +8153,6 @@
 	                    , onEntering: this._onPanelChangeIng.bind(this, 1) //显示进行中回调
 	                    , onExited: this._onPanelChangeEnd.bind(this, 0) //隐藏完成回调
 	                    , onEntered: this._onPanelChangeEnd.bind(this, 1) //显示后回调
-	                    , style: {
-	                        backgroundColor: bgColor
-	                    }
 	                },
 	                children
 	            )
@@ -8256,8 +8262,35 @@
 	                },
 	                onPanelChangeEnd: function onPanelChangeEnd(status) {
 	                    console.log(status, "end");
-	                }
-	
+	                },
+	                resident: _react2['default'].createElement(
+	                    'div',
+	                    { className: 'demo' },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'margin-top-10' },
+	                        _react2['default'].createElement(
+	                            'span',
+	                            { className: 'demo-item' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                { className: 'demo-label' },
+	                                '\u540D\u79F0:'
+	                            ),
+	                            _react2['default'].createElement(_tinperBee.FormControl, { placeholder: '\u8BF7\u8F93\u5165\u540D\u79F0' })
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            { className: 'demo-item' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                { className: 'demo-label' },
+	                                '\u7F16\u7801:'
+	                            ),
+	                            _react2['default'].createElement(_tinperBee.FormControl, { placeholder: '\u8BF7\u8F93\u5165\u7F16\u7801' })
+	                        )
+	                    )
+	                )
 	            },
 	            _react2['default'].createElement(
 	                'div',

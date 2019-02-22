@@ -59,7 +59,20 @@ class Demo1 extends Component {
                 onPanelChangeEnd={status => {
                     console.log(status, "end")
                 }}
-
+                resident={
+                    <div className='demo'>
+                        <div className="margin-top-10">
+                        <span className="demo-item">
+                            <label className="demo-label">名称:</label>
+                            <FormControl placeholder="请输入名称"/>
+                        </span>
+                            <span className="demo-item">
+                            <label className="demo-label">编码:</label>
+                            <FormControl placeholder="请输入编码"/>
+                        </span>
+                        </div>
+                    </div>
+                }
             >
                 <div className="demo">
                     <div>

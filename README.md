@@ -53,6 +53,7 @@ import "./node_modules/bee-search-panel/build/SearchPanel.css"
 |onPanelChangeIng|面板展开或者隐藏进行中的回调(status)=>{//status="hide"或"visible"}|function|-|
 |onPanelChangeEnd|面板展开或者隐藏结束后的回调(status)=>{//status="hide"或"visible"}|function|-|
 |bgColor|面板背景颜色|string|"#F7F9FB"|
+|resident|常驻面板内容，不会隐藏|ReactNode|-|
 
 #### 开发调试
 
