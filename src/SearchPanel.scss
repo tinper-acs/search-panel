@@ -41,7 +41,9 @@
             margin-left: 8px;
             cursor: pointer;
             vertical-align: middle;
-
+            &:hover {
+                background: #EBECF0;
+            }
             & > i {
                 font-size: 12px;
                 padding-right: 0;
@@ -50,6 +52,9 @@
             &.primary {
                 background: #5E6C84;
                 color: #ffffff;
+                &:hover {
+                    background: #344563;
+                }
             }
         }
     }
