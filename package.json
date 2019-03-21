@@ -40,7 +40,9 @@
   },
   "devDependencies": {
     "bee-button": "latest",
+    "bee-clipboard": "^2.0.0",
     "bee-datepicker": "latest",
+    "bee-drawer": "0.0.2",
     "bee-layout": "latest",
     "chai": "^3.5.0",
     "console-polyfill": "~0.2.1",
