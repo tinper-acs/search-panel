@@ -1,13 +1,14 @@
 /**
  *
- * @title 基础示例
- * @description 基础示例
+ * @title 普通搜索面板
+ * @description 一般用于页面中有搜索功能的内容区。
  *
  */
 import React, {Component} from 'react';
 import SearchPanel from '../../src';
-import {FormControl,Row, Col,Label,FormGroup,Radio} from 'tinper-bee';
+import {FormControl,Row, Col,Label,Form,Radio} from 'tinper-bee';
 
+const FormItem = Form.FormItem;
 
 class Demo1 extends Component {
     constructor(props){
@@ -42,10 +43,10 @@ class Demo1 extends Component {
         this.setState({expanded: !this.state.expanded})
     }
     render() {
-
+        const { getFieldProps, getFieldError } = this.props.form;
         return (
             <SearchPanel
-                title='基础示例'
+                title='条件筛选'
                 onSearch={this.search}
                 onReset={this.clear}
                 expanded={this.state.expanded}
@@ -61,48 +62,148 @@ class Demo1 extends Component {
                 }}
                 resident={
                     <div className='demo'>
-                        <div className="margin-top-10">
-                        <span className="demo-item">
-                            <label className="demo-label">名称:</label>
-                            <FormControl placeholder="请输入名称"/>
-                        </span>
-                            <span className="demo-item">
-                            <label className="demo-label">编码:</label>
-                            <FormControl placeholder="请输入编码"/>
-                        </span>
-                        </div>
+                        <Form>
+                            <Row>
+                                <Col lg={3} md={3} xs={12}>
+                                    <FormItem>
+                                        <Col md={4} xs={2}>
+                                            <Label>名称</Label>
+                                        </Col>
+                                        <Col md={8} xs={10}>
+                                            <FormControl size="sm"
+                                                {
+                                                ...getFieldProps('orderCode', {
+                                                    initialValue: '',
+                                                })
+                                                }
+                                            />
+                                        </Col>
+                                    </FormItem>
+                                </Col>
+
+                                <Col  lg={3} md={3} xs={12}>
+                                    <FormItem>
+                                        <Col md={4} xs={2}>
+                                            <Label>供应商</Label>
+                                        </Col>
+                                        <Col md={8} xs={10}>
+                                            <FormControl size="sm"
+                                                {
+                                                ...getFieldProps('supplierName', {
+                                                    initialValue: '',
+                                                })
+                                                }
+                                            />
+                                        </Col>
+                                    </FormItem>
+                                </Col>
+
+
+                                <Col  lg={3} md={3} xs={12}>
+                                    <FormItem>
+                                        <Col md={4} xs={2}>
+                                            <Label>收货人</Label>
+                                        </Col>
+                                        <Col md={8} xs={10}>
+                                            <FormControl size="sm"
+                                                {
+                                                ...getFieldProps('supplierName', {
+                                                    initialValue: '',
+                                                })
+                                                }
+                                            />
+                                        </Col>
+                                    </FormItem>
+                                </Col>
+
+                                <Col  lg={3} md={3} xs={12}>
+                                    <FormItem>
+                                        <Col md={4} xs={2}>
+                                            <Label>供应商</Label>
+                                        </Col>
+                                        <Col md={8} xs={10}>
+                                            <FormControl size="sm"
+                                                {
+                                                ...getFieldProps('supplierName', {
+                                                    initialValue: '',
+                                                })
+                                                }
+                                            />
+                                        </Col>
+                                    </FormItem>
+                                </Col>
+
+                            </Row>
+                        </Form>
                     </div>
                 }
             >
                 <div className="demo">
-                    <div>
-                        <label className="demo-label">状态:</label>
-                        <Radio.RadioGroup
-                            name="state"
-                            selectedValue={this.state.state}
-                            onChange={this.stateChange.bind(this)}>
-                            <Radio.RadioButton value="all">全部</Radio.RadioButton>
-                            <Radio.RadioButton value="initial">初始化</Radio.RadioButton>
-                            <Radio.RadioButton value="todo">待处理</Radio.RadioButton>
-                            <Radio.RadioButton value="doing">处理中</Radio.RadioButton>
-                            <Radio.RadioButton  value="done">已完成</Radio.RadioButton>
-                            <Radio.RadioButton  value="closed">已完成</Radio.RadioButton>
-                        </Radio.RadioGroup>
-                    </div>
+                    <Form>
+                        <Row>
+                            <Col lg={12} md={12} xs={12} >
+                                <FormItem>
+                                    <Col md={1} xs={2} className="radio">
+                                        <Label >状态</Label>
+                                    </Col>
+                                    <Col md={11} xs={10}>
+                                        <Radio.RadioGroup
+                                            name="state"
+                                            selectedValue={this.state.state}
+                                            onChange={this.stateChange.bind(this)}>
+                                            <Radio.RadioButton value="all">全部</Radio.RadioButton>
+                                            <Radio.RadioButton value="initial">初始化</Radio.RadioButton>
+                                            <Radio.RadioButton value="todo">待处理</Radio.RadioButton>
+                                            <Radio.RadioButton value="doing">处理中</Radio.RadioButton>
+                                            <Radio.RadioButton  value="done">已完成</Radio.RadioButton>
+                                            <Radio.RadioButton  value="closed">已完成</Radio.RadioButton>
+                                        </Radio.RadioGroup>
+                                    </Col>
 
-                    <div className="margin-top-10">
-                        <span className="demo-item">
-                            <label className="demo-label">名称:</label>
-                            <FormControl placeholder="请输入名称"/>
-                        </span>
-                        <span className="demo-item">
-                            <label className="demo-label">编码:</label>
-                            <FormControl placeholder="请输入编码"/>
-                        </span>
-                    </div>
+                                </FormItem>
+                            </Col>
+                        </Row>
+
+
+                        <Row>
+                            <Col lg={3} md={3} xs={12}>
+                                <FormItem>
+                                    <Col md={4} xs={2}>
+                                        <Label>联系人</Label>
+                                    </Col>
+                                    <Col md={8} xs={10}>
+                                        <FormControl size="sm"
+                                            {
+                                            ...getFieldProps('orderCode', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
+                                    </Col>
+                                </FormItem>
+                            </Col>
+
+                            <Col lg={3} md={3} xs={12}>
+                                <FormItem>
+                                    <Col md={4} xs={2}>
+                                        <Label>电话</Label>
+                                    </Col>
+                                    <Col md={8} xs={10}>
+                                        <FormControl size="sm"
+                                            {
+                                            ...getFieldProps('orderCode', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
+                                    </Col>
+                                </FormItem>
+                            </Col>
+                        </Row>
+                    </Form>
                 </div>
             </SearchPanel>
         )
     }
 }
-export default Demo1;
+export default Form.createForm()(Demo1);
