@@ -15,10 +15,15 @@
 
 .demo{
   .u-label {
-    display: inline-block;
-    min-width: 80px;
-    text-align: right;
+    // display: inline-block;
+    width: 80px;
+    // text-align: right;
     white-space:nowrap;
+  }
+  // .u-radio-group,
+  .u-checkbox-group,
+  .col{
+    display: inline-flex;
   }
 }
 
