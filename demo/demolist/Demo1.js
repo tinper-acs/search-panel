@@ -94,7 +94,7 @@ class Demo1 extends Component {
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={4}>
+                                {/* <Col xs={12} sm={6} md={4}  lg={4}>
                                     <FormItem>
                                         <Col xs={8} sm={8} md={8}  lg={12} className="col">
                                             <Label>电话:</Label>
@@ -107,7 +107,7 @@ class Demo1 extends Component {
                                             />
                                         </Col>
                                     </FormItem>
-                                </Col>
+                                </Col> */}
 
                             </Row>
                         </Form>
