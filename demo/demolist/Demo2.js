@@ -97,9 +97,9 @@ class Demo2 extends Component {
                 <div className='demo-head'>
                         <Form>
                             <Row>
-                                <Col xs={12} sm={6} md={4} lg={4}>
+                                <Col xs={12} sm={6} md={4} lg={3}>
                                     <FormItem>
-                                        <Col xs={8} sm={8} md={8}  lg={12} className="col">
+                                        <Col xs={12} sm={12} md={12}  lg={12} className="col">
                                             <Label>订单编号:</Label>
                                             <FormControl size="sm"
                                                 {
@@ -112,9 +112,9 @@ class Demo2 extends Component {
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={4}>
+                                <Col xs={12} sm={6} md={4}  lg={3}>
                                     <FormItem>
-                                        <Col xs={8} sm={8} md={8}  lg={12} className="col">
+                                        <Col xs={12} sm={12} md={12}  lg={12} className="col">
                                             <Label>供应商名称:</Label>
                                             <FormControl size="sm"
                                                 {
@@ -135,9 +135,9 @@ class Demo2 extends Component {
                 <div className='demo-body'>
                     <Form>
                         <Row>
-                            <Col xs={12} sm={6} md={4}  lg={4}>
+                            <Col xs={12} sm={6} md={4}  lg={3}>
                                 <FormItem>
-                                    <Col xs={8} sm={8} md={8}  lg={12} className="col">
+                                    <Col xs={12} sm={12} md={12}  lg={12} className="col">
                                         <Label>订单类型:</Label>
                                         <Select size="sm"
                                             {
@@ -158,9 +158,9 @@ class Demo2 extends Component {
                                 </FormItem>
                             </Col>
 
-                            <Col xs={12} sm={6} md={4}  lg={4}>
+                            <Col xs={12} sm={6} md={4}  lg={3}>
                                 <FormItem>
-                                    <Col xs={8} sm={8} md={8}  lg={12} className="col">
+                                    <Col xs={12} sm={12} md={12}  lg={12} className="col">
                                         <Label>采购组</Label>
                                         <CheckboxGroup 
                                                 {
@@ -176,9 +176,9 @@ class Demo2 extends Component {
                                 </FormItem>
                             </Col>
 
-                            <Col xs={12} sm={6} md={4}  lg={4}>
+                            <Col xs={12} sm={6} md={4}  lg={3}>
                                 <FormItem>
-                                    <Col xs={8} sm={8} md={8}  lg={12} className="col">
+                                    <Col xs={12} sm={12} md={12}  lg={12} className="col">
                                         <Label>审批</Label>
                                         <Radio.RadioGroup
                                                 selectedValue={this.state.approvalState}
