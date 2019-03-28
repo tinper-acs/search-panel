@@ -100,18 +100,28 @@ class SearchPanel extends Component {
         const { onPanelChangeEnd } = this.props;
         onPanelChangeEnd && this._onPanelChange(type, onPanelChangeEnd)
     }
+    _getChildren = (element) => {
+        if(element.type.prototype === HeadContainer.prototype){
+            this._HeadContainer = element;
+        }else if(element.type.prototype === AdvancedContainer.prototype){
+            this._AdvancedContainer = element;
+        }
+    }
+
+
+
     render() {
         const { children, clsPrefix, className, resetName, searchName, bgColor, style } = this.props;
         const { expanded } = this.state;
         const _stype = style || {};
-        children.forEach(element => {
-            if(element.type.prototype === HeadContainer.prototype){
-                this._HeadContainer = element;
-            }else if(element.type.prototype === AdvancedContainer.prototype){
-                this._AdvancedContainer = element;
-            }
-        });
-
+        if(children instanceof  Array){
+            children.forEach(element => {
+                this._getChildren(element);
+            });
+        }else{
+            this._getChildren(children);
+        }
+    
         return (
             <div className={clsPrefix + ' ' + className}
                  style={{background: bgColor, ..._stype}}>

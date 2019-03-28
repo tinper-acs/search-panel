@@ -1,7 +1,7 @@
 /**
  *
- * @title HeadContainer 为空状态
- * @description 目前提供 HeadContainer(常驻区)、AdvancedContainer(收起区) 两部分示例
+ * @title 提取所有输入信息
+ * @description 针对表头中的搜索内容，进行提取键入的信息数据。【查看console的输出】
  *
  */
 import React, {Component} from 'react';
@@ -17,7 +17,7 @@ const CheckboxGroup = Checkbox.CheckboxGroup;
 const HeadContainer = SearchPanel.HeadContainer;
 const AdvancedContainer = SearchPanel.AdvancedContainer;
 
-class Demo2 extends Component {
+class Demo3 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -95,7 +95,7 @@ class Demo2 extends Component {
                 onPanelChangeEnd={status => {
                     console.log(status, "end")
                 }}>
-                {/* <HeadContainer>
+                <HeadContainer>
                     <div className='demo-head'>
                         <Form>
                             <Row>
@@ -131,7 +131,7 @@ class Demo2 extends Component {
                             </Row>
                         </Form>
                     </div>
-                </HeadContainer> */}
+                </HeadContainer>
             
 
                 <AdvancedContainer>
@@ -210,4 +210,4 @@ class Demo2 extends Component {
     }
 }
 
-export default Form.createForm()(Demo2);
+export default Form.createForm()(Demo3);

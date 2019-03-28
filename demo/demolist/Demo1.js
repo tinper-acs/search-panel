@@ -7,8 +7,6 @@
 import React, {Component} from 'react';
 import SearchPanel from '../../src';
 import {FormControl,Row, Col,Label,Form,Radio} from 'tinper-bee';
-// import HeadContainer from '../../src/HeadContainer';
-
 let HeadContainer = SearchPanel.HeadContainer;
 let AdvancedContainer = SearchPanel.AdvancedContainer;
 
