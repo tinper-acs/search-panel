@@ -57,7 +57,8 @@ var propTypes = {
     onPanelChangeStart: _propTypes2["default"].func, //显示或隐藏开始回调
     onPanelChangeIng: _propTypes2["default"].func, //显示或隐藏进行中回调
     onPanelChangeEnd: _propTypes2["default"].func, //显示或隐藏结束回调
-    onChange: _propTypes2["default"].func //点击显示或隐藏回调
+    onChange: _propTypes2["default"].func, //点击显示或隐藏回调
+    showOperation: _propTypes2["default"].bool //是否显示 查询，清空
     // resident: PropTypes.node //常驻面板内容，不会隐藏
 };
 
@@ -65,7 +66,8 @@ var defaultProps = {
     className: "",
     clsPrefix: 'u-search',
     defaultExpanded: false,
-    bgColor: "#F7F9FB"
+    bgColor: "#F7F9FB",
+    showOperation: true
 };
 
 var SearchPanel = function (_Component) {
@@ -172,7 +174,8 @@ var SearchPanel = function (_Component) {
             searchName = _props.searchName,
             title = _props.title,
             bgColor = _props.bgColor,
-            style = _props.style;
+            style = _props.style,
+            showOperation = _props.showOperation;
 
         if (!resetName) resetName = local['resetName'];
         if (!searchName) searchName = local['searchName'];
@@ -208,12 +211,12 @@ var SearchPanel = function (_Component) {
                 _react2["default"].createElement(
                     'div',
                     { className: clsPrefix + "-header-oper" },
-                    this._HeadContainer ? _react2["default"].createElement(
+                    this._HeadContainer || showOperation && expanded ? _react2["default"].createElement(
                         'span',
                         { className: 'header-oper-btn', role: 'button', onClick: this.reset },
                         resetName
                     ) : null,
-                    this._HeadContainer ? _react2["default"].createElement(
+                    this._HeadContainer || showOperation && expanded ? _react2["default"].createElement(
                         'span',
                         { className: 'header-oper-btn primary', role: 'button', onClick: this.search },
                         searchName

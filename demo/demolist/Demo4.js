@@ -55,7 +55,6 @@ class Demo4 extends Component {
         }
         return (<div className="demo">
             <SearchPanel locale={locale}
-                title='条件筛选'
                 onSearch={this.search}
                 onReset={this.clear}
                 expanded={this.state.expanded}

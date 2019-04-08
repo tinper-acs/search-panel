@@ -22,6 +22,7 @@ const propTypes =  {
     onPanelChangeIng: PropTypes.func,//显示或隐藏进行中回调
     onPanelChangeEnd: PropTypes.func,//显示或隐藏结束回调
     onChange: PropTypes.func,//点击显示或隐藏回调
+    showOperation: PropTypes.bool//是否显示 查询，清空
     // resident: PropTypes.node //常驻面板内容，不会隐藏
 };
 
@@ -30,6 +31,7 @@ const defaultProps = {
     clsPrefix: 'u-search',
     defaultExpanded: false,
     bgColor: "#F7F9FB",
+    showOperation: true
 };
 
 
@@ -112,7 +114,7 @@ class SearchPanel extends Component {
 
     render() {
         const local = getComponentLocale(this.props, this.context, 'SearchPanel', () => i18n);
-        let { children, clsPrefix, className, resetName, searchName, title, bgColor, style } = this.props;
+        let { children, clsPrefix, className, resetName, searchName, title, bgColor, style, showOperation } = this.props;
         if(!resetName)resetName=local['resetName'];
         if(!searchName)searchName=local['searchName'];
         if(!title)title=local['title'];
@@ -137,8 +139,8 @@ class SearchPanel extends Component {
                     </div>
 
                     <div className={clsPrefix + "-header-oper"}>
-                        {this._HeadContainer ? <span className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</span> : null}
-                        {this._HeadContainer ? <span className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</span> : null}
+                        {(this._HeadContainer||(showOperation&&expanded)) ? <span className="header-oper-btn" role="button" onClick={this.reset}>{resetName}</span> : null}
+                        {(this._HeadContainer||(showOperation&&expanded)) ? <span className="header-oper-btn primary" role="button" onClick={this.search}>{searchName}</span> : null}
                         <span
                             className="header-oper-btn"
                             role="button"
