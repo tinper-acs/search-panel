@@ -4,6 +4,9 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import AdvancedContainer from './AdvancedContainer';
 import HeadContainer from './HeadContainer';
+import i18n from './i18n';
+import { getComponentLocale } from 'bee-locale/build/tool';
+
 
 const emFun = () => {}
 
@@ -26,11 +29,7 @@ const defaultProps = {
     className: "",
     clsPrefix: 'u-search',
     defaultExpanded: false,
-    title: "默认筛选",
-    resetName: "清空",
-    searchName: "查询",
     bgColor: "#F7F9FB",
-
 };
 
 
@@ -112,7 +111,12 @@ class SearchPanel extends Component {
 
 
     render() {
-        const { children, clsPrefix, className, resetName, searchName, bgColor, style } = this.props;
+        const local = getComponentLocale(this.props, this.context, 'SearchPanel', () => i18n);
+        let { children, clsPrefix, className, resetName, searchName, title, bgColor, style } = this.props;
+        if(!resetName)resetName=local['resetName'];
+        if(!searchName)searchName=local['searchName'];
+        if(!title)title=local['title'];
+
         const { expanded } = this.state;
         const _stype = style || {};
         if(children instanceof  Array){
@@ -128,7 +132,7 @@ class SearchPanel extends Component {
                  style={{background: bgColor, ..._stype}}>
                 <div className={clsPrefix + "-header"}>
                     <div className={clsPrefix + "-header-title"}>
-                        <span>{this.props.title}</span>
+                        <span>{title}</span>
                         {/*<Icon type="uf-arrow-c-o-down"/>*/}
                     </div>
 
@@ -140,7 +144,7 @@ class SearchPanel extends Component {
                             role="button"
                             onClick={this._onChange}
                         >
-                        {expanded ? '收起' : '展开'}
+                        {expanded ? local['up'] : local['down']}
                             <i className={classnames({
                                 'uf': true,
                                 'uf-arrow-down': !expanded,
@@ -174,5 +178,8 @@ class SearchPanel extends Component {
 }
 SearchPanel.propTypes = propTypes;
 SearchPanel.defaultProps = defaultProps;
+SearchPanel.contextTypes = {
+    beeLocale: PropTypes.object
+};
 
 export default SearchPanel;

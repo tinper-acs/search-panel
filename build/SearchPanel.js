@@ -28,6 +28,12 @@ var _HeadContainer = require('./HeadContainer');
 
 var _HeadContainer2 = _interopRequireDefault(_HeadContainer);
 
+var _i18n = require('./i18n');
+
+var _i18n2 = _interopRequireDefault(_i18n);
+
+var _tool = require('bee-locale/build/tool');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -59,11 +65,7 @@ var defaultProps = {
     className: "",
     clsPrefix: 'u-search',
     defaultExpanded: false,
-    title: "默认筛选",
-    resetName: "清空",
-    searchName: "查询",
     bgColor: "#F7F9FB"
-
 };
 
 var SearchPanel = function (_Component) {
@@ -159,14 +161,23 @@ var SearchPanel = function (_Component) {
     SearchPanel.prototype.render = function render() {
         var _this2 = this;
 
+        var local = (0, _tool.getComponentLocale)(this.props, this.context, 'SearchPanel', function () {
+            return _i18n2["default"];
+        });
         var _props = this.props,
             children = _props.children,
             clsPrefix = _props.clsPrefix,
             className = _props.className,
             resetName = _props.resetName,
             searchName = _props.searchName,
+            title = _props.title,
             bgColor = _props.bgColor,
             style = _props.style;
+
+        if (!resetName) resetName = local['resetName'];
+        if (!searchName) searchName = local['searchName'];
+        if (!title) title = local['title'];
+
         var expanded = this.state.expanded;
 
         var _stype = style || {};
@@ -191,7 +202,7 @@ var SearchPanel = function (_Component) {
                     _react2["default"].createElement(
                         'span',
                         null,
-                        this.props.title
+                        title
                     )
                 ),
                 _react2["default"].createElement(
@@ -214,7 +225,7 @@ var SearchPanel = function (_Component) {
                             role: 'button',
                             onClick: this._onChange
                         },
-                        expanded ? '收起' : '展开',
+                        expanded ? local['up'] : local['down'],
                         _react2["default"].createElement('i', { className: (0, _classnames2["default"])({
                                 'uf': true,
                                 'uf-arrow-down': !expanded,
@@ -250,6 +261,9 @@ var SearchPanel = function (_Component) {
 
 SearchPanel.propTypes = propTypes;
 SearchPanel.defaultProps = defaultProps;
+SearchPanel.contextTypes = {
+    beeLocale: _propTypes2["default"].object
+};
 
 exports["default"] = SearchPanel;
 module.exports = exports['default'];
