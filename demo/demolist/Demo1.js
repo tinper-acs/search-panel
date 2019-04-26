@@ -53,6 +53,7 @@ class Demo1 extends Component {
                 onReset={this.clear}
                 expanded={this.state.expanded}
                 onChange={this.onChange}
+                showOperation={false}  
                 onPanelChangeStart={status => {
                     console.log(status, "start")
                 }}
