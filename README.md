@@ -14,7 +14,7 @@ react bee-search-panel component for tinper-bee
 ## 使用方法
 
 ```
-import SearchPanel from 'bee-search-panel';
+import SearchPanel from 'search-panel-tinper-next';
 
 class SearchPanelDemo extends Component {
     render() {

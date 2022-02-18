@@ -1,7 +1,4 @@
-@import "../node_modules/tinper-bee-core/scss/minxin-variables";
-@import "../node_modules/tinper-bee-core/scss/minxin-mixins";
-
-.u-search {
+.wui-search {
     background: #F7F9FB;
     &-header {
         color: #424242;
@@ -67,26 +64,27 @@
         // }
     }
 
-    .u-panel {
+    .wui-collapse {
         border-radius: 0;
         border: none;
         margin-bottom: 0;
         background: transparent;
         box-shadow: none;
 
-        .u-panel-heading {
-            height: 48px;
-            padding: 11px 24px;
-            border: none;
-            background: transparent;
-        }
+        // 这部分代码用到了吗？
+        // .u-panel-heading {
+        //     height: 48px;
+        //     padding: 11px 24px;
+        //     border: none;
+        //     background: transparent;
+        // }
 
-        .u-panel-body {
+        .wui-collapse-body {
             background: transparent;
             padding: 0 24px 10px;
         }
 
-        .u-panel-collapse.collapsing {
+        .wui-collapse-collapse.collapsing {
             width: 100%;
         }
     }

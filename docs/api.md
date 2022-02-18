@@ -9,12 +9,9 @@
 ## 如何使用
 
 ```
-import { SearchPanel } from 'tinper-bee';
 
-or
-
-import SearchPanel from 'bee-search-panel';
-import 'bee-search-panel/build/SearchPanel.css';
+import SearchPanel from 'search-panel-tinper-next';
+import 'search-panel-tinper-next/build/SearchPanel.css';
 
 ```
 ## 代码演示

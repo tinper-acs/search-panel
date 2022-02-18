@@ -1,34 +1,34 @@
 .demo3 {
-    .u-label {
+    .wui-form-item-label {
         min-width: 80px;
         white-space: nowrap;
         text-align: right;
     }
-    .u-checkbox-group,
+    .wui-checkbox-group,
     .col {
         display: inline-flex;
     }
-    .u-form-item {
+    .wui-form-item {
         min-height: 42px;
-        .u-select {
+        .wui-select {
             min-width: 152px;
         }
-        .u-form-control {
+        .wui-input {
             min-width: 152px;
         }
     }
-    .u-form-item,
-    .u-row>div {
+    .wui-form-item,
+    .wui-form-item>div {
         padding: 0;
     }
-    .u-search .u-panel {
+    .wui-search .wui-collapse {
         padding-top: 0px;
         padding-bottom: 0;
-        .u-panel-body{
+        .wui-collapse-body{
             padding-bottom: 0
         }
     }
-    .u-search-resident {
+    .wui-search-resident {
         padding-bottom: 0px;
         padding-top: 0px;
     }

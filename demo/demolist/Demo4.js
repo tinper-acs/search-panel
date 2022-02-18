@@ -6,13 +6,13 @@
  */
 import React, {Component} from 'react';
 import SearchPanel from '../../src';
-import {FormControl,Row, Col,Label,Form,Radio} from 'tinper-bee';
+import { Input, Row, Col, Form } from '@tinper/next-ui';
 let HeadContainer = SearchPanel.HeadContainer;
 let AdvancedContainer = SearchPanel.AdvancedContainer;
 
-const FormItem = Form.FormItem;
+const FormItem = Form.Item;
 
-class Demo1 extends Component {
+class Demo4 extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -64,9 +64,8 @@ class Demo1 extends Component {
                         <Form>
                             <Row>
                                 <Col xs={12} sm={6} md={4} lg={3}>
-                                    <FormItem>
-                                            <Label>名 称</Label>
-                                            <FormControl size="sm"
+                                    <FormItem label="名称">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('name', {
                                                     initialValue: '',
@@ -76,10 +75,9 @@ class Demo1 extends Component {
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>电话</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="电话">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('phone', {
                                                     initialValue: '',
@@ -97,11 +95,9 @@ class Demo1 extends Component {
                     <div className='demo-body'>
                         <Form>
                             <Row>
-
                                 <Col xs={12} sm={6} md={4} lg={3}>
-                                    <FormItem>
-                                            <Label>联系人</Label>
-                                            <FormControl size="sm"
+                                    <FormItem label="联系人">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('people', {
                                                     initialValue: '',
@@ -110,11 +106,9 @@ class Demo1 extends Component {
                                             />
                                     </FormItem>
                                 </Col>
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>供应商</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="供应商">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('supplier', {
                                                     initialValue: '',
@@ -123,11 +117,9 @@ class Demo1 extends Component {
                                             />
                                     </FormItem>
                                 </Col> 
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>地址</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="地址">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('address', {
                                                     initialValue: '',
@@ -136,12 +128,9 @@ class Demo1 extends Component {
                                             />
                                     </FormItem>
                                 </Col> 
-
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>车牌</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="车牌">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('carNumber', {
                                                     initialValue: '',
@@ -150,11 +139,9 @@ class Demo1 extends Component {
                                             />
                                     </FormItem>
                                 </Col>
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>备注</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="备注">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('remark', {
                                                     initialValue: '',
@@ -163,11 +150,9 @@ class Demo1 extends Component {
                                             />
                                     </FormItem>
                                 </Col>
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>编号</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="编号">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('id', {
                                                     initialValue: '',
@@ -176,7 +161,6 @@ class Demo1 extends Component {
                                             />
                                     </FormItem>
                                 </Col>
-
                             </Row>
                         </Form>
                     </div>                 
@@ -186,4 +170,4 @@ class Demo1 extends Component {
         )
     }
 }
-export default Form.createForm()(Demo1);
+export default Form.createForm()(Demo4);

@@ -1,27 +1,25 @@
-/* FormGroup */
-/*  Navlayout  */
-.u-search {
+.wui-search {
   background: #F7F9FB; }
-  .u-search-header {
+  .wui-search-header {
     color: #424242;
     overflow: hidden;
     height: 48px;
     padding: 11px 24px; }
-    .u-search-header > a {
+    .wui-search-header > a {
       overflow: hidden; }
-  .u-search-header-title {
+  .wui-search-header-title {
     float: left;
     color: #434A54;
     line-height: 26px;
     font-size: 14px;
     font-weight: 500; }
-    .u-search-header-title > i {
+    .wui-search-header-title > i {
       font-weight: 600; }
-  .u-search-header-oper {
+  .wui-search-header-oper {
     float: right;
     vertical-align: center;
     line-height: 0; }
-    .u-search-header-oper .header-oper-btn {
+    .wui-search-header-oper .header-oper-btn {
       display: inline-block;
       width: 64px;
       height: 26px;
@@ -32,33 +30,28 @@
       margin-left: 8px;
       cursor: pointer;
       vertical-align: middle; }
-      .u-search-header-oper .header-oper-btn:hover {
+      .wui-search-header-oper .header-oper-btn:hover {
         background: #EBECF0; }
-      .u-search-header-oper .header-oper-btn > i {
+      .wui-search-header-oper .header-oper-btn > i {
         font-size: 12px;
         padding-right: 0; }
-      .u-search-header-oper .header-oper-btn.primary {
+      .wui-search-header-oper .header-oper-btn.primary {
         background: #5E6C84;
         color: #ffffff; }
-        .u-search-header-oper .header-oper-btn.primary:hover {
+        .wui-search-header-oper .header-oper-btn.primary:hover {
           background: #344563; }
-  .u-search-resident {
+  .wui-search-resident {
     padding: 0 24px 10px; }
-  .u-search .u-panel {
+  .wui-search .wui-collapse {
     border-radius: 0;
     border: none;
     margin-bottom: 0;
     background: transparent;
     box-shadow: none; }
-    .u-search .u-panel .u-panel-heading {
-      height: 48px;
-      padding: 11px 24px;
-      border: none;
-      background: transparent; }
-    .u-search .u-panel .u-panel-body {
+    .wui-search .wui-collapse .wui-collapse-body {
       background: transparent;
       padding: 0 24px 10px; }
-    .u-search .u-panel .u-panel-collapse.collapsing {
+    .wui-search .wui-collapse .wui-collapse-collapse.collapsing {
       width: 100%; }
 
 .demo .u-label {
@@ -86,34 +79,34 @@
   padding-bottom: 0px;
   padding-top: 0px; }
 
-.demo1 .u-label {
+.demo1 .wui-form-item-label {
   min-width: 80px;
   white-space: nowrap;
   text-align: right; }
 
-.demo1 .u-checkbox-group,
+.demo1 .wui-checkbox-group,
 .demo1 .col {
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
-.demo1 .u-form-item {
+.demo1 .wui-form-item {
   min-height: 42px; }
-  .demo1 .u-form-item .u-select {
+  .demo1 .wui-form-item .wui-select {
     min-width: 152px; }
-  .demo1 .u-form-item .u-form-control {
+  .demo1 .wui-form-item .wui-input {
     min-width: 152px; }
 
-.demo1 .u-form-item,
-.demo1 .u-row > div {
+.demo1 .wui-form-item,
+.demo1 .wui-form-item > div {
   padding: 0; }
 
-.demo1 .u-search .u-panel {
+.demo1 .wui-search .wui-collapse {
   padding-top: 0px;
   padding-bottom: 0; }
-  .demo1 .u-search .u-panel .u-panel-body {
+  .demo1 .wui-search .wui-collapse .wui-collapse-body {
     padding-bottom: 0; }
 
-.demo1 .u-search-resident {
+.demo1 .wui-search-resident {
   padding-bottom: 0px;
   padding-top: 0px; }
 
@@ -123,34 +116,34 @@
 .demo1 .demo-body {
   margin: 0 -20px; }
 
-.demo2 .u-label {
+.demo2 .wui-form-item-label {
   min-width: 80px;
   white-space: nowrap;
   text-align: right; }
 
-.demo2 .u-checkbox-group,
+.demo2 .wui-checkbox-group,
 .demo2 .col {
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
-.demo2 .u-form-item {
+.demo2 .wui-form-item {
   min-height: 42px; }
-  .demo2 .u-form-item .u-select {
+  .demo2 .wui-form-item .wui-select {
     min-width: 152px; }
-  .demo2 .u-form-item .u-form-control {
+  .demo2 .wui-form-item .wui-input {
     min-width: 152px; }
 
-.demo2 .u-form-item,
-.demo2 .u-row > div {
+.demo2 .wui-form-item,
+.demo2 .wui-form-item > div {
   padding: 0; }
 
-.demo2 .u-search .u-panel {
+.demo2 .wui-search .wui-collapse {
   padding-top: 0px;
   padding-bottom: 0; }
-  .demo2 .u-search .u-panel .u-panel-body {
+  .demo2 .wui-search .wui-collapse .wui-collapse-body {
     padding-bottom: 0; }
 
-.demo2 .u-search-resident {
+.demo2 .wui-search-resident {
   padding-bottom: 0px;
   padding-top: 0px; }
 
@@ -160,34 +153,34 @@
 .demo2 .demo-body {
   margin: 0 -20px; }
 
-.demo3 .u-label {
+.demo3 .wui-form-item-label {
   min-width: 80px;
   white-space: nowrap;
   text-align: right; }
 
-.demo3 .u-checkbox-group,
+.demo3 .wui-checkbox-group,
 .demo3 .col {
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
-.demo3 .u-form-item {
+.demo3 .wui-form-item {
   min-height: 42px; }
-  .demo3 .u-form-item .u-select {
+  .demo3 .wui-form-item .wui-select {
     min-width: 152px; }
-  .demo3 .u-form-item .u-form-control {
+  .demo3 .wui-form-item .wui-input {
     min-width: 152px; }
 
-.demo3 .u-form-item,
-.demo3 .u-row > div {
+.demo3 .wui-form-item,
+.demo3 .wui-form-item > div {
   padding: 0; }
 
-.demo3 .u-search .u-panel {
+.demo3 .wui-search .wui-collapse {
   padding-top: 0px;
   padding-bottom: 0; }
-  .demo3 .u-search .u-panel .u-panel-body {
+  .demo3 .wui-search .wui-collapse .wui-collapse-body {
     padding-bottom: 0; }
 
-.demo3 .u-search-resident {
+.demo3 .wui-search-resident {
   padding-bottom: 0px;
   padding-top: 0px; }
 
@@ -197,34 +190,34 @@
 .demo3 .demo-body {
   margin: 0 -20px; }
 
-.demo4 .u-label {
+.demo4 .wui-form-item-label {
   min-width: 80px;
   white-space: nowrap;
   text-align: right; }
 
-.demo4 .u-checkbox-group,
+.demo4 .wui-checkbox-group,
 .demo4 .col {
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
-.demo4 .u-form-item {
+.demo4 .wui-form-item {
   min-height: 42px; }
-  .demo4 .u-form-item .u-select {
+  .demo4 .wui-form-item .wui-select {
     min-width: 152px; }
-  .demo4 .u-form-item .u-form-control {
+  .demo4 .wui-form-item .wui-input {
     min-width: 152px; }
 
-.demo4 .u-form-item,
-.demo4 .u-row > div {
+.demo4 .wui-form-item,
+.demo4 .wui-form-item > div {
   padding: 0; }
 
-.demo4 .u-search .u-panel {
+.demo4 .wui-search .wui-collapse {
   padding-top: 0px;
   padding-bottom: 0; }
-  .demo4 .u-search .u-panel .u-panel-body {
+  .demo4 .wui-search .wui-collapse .wui-collapse-body {
     padding-bottom: 0; }
 
-.demo4 .u-search-resident {
+.demo4 .wui-search-resident {
   padding-bottom: 0px;
   padding-top: 0px; }
 

@@ -6,11 +6,11 @@
  */
 import React, {Component} from 'react';
 import SearchPanel from '../../src';
-import {FormControl,Row, Col,Label,Form,Radio} from 'tinper-bee';
+import { Input, Row, Col, Form } from '@tinper/next-ui';
 let HeadContainer = SearchPanel.HeadContainer;
 let AdvancedContainer = SearchPanel.AdvancedContainer;
 
-const FormItem = Form.FormItem;
+const FormItem = Form.Item;
 
 class Demo1 extends Component {
     constructor(props){
@@ -57,119 +57,102 @@ class Demo1 extends Component {
                         <Form>
                             <Row>
                                 <Col xs={12} sm={6} md={4} lg={3}>
-                                    <FormItem>
-                                            <Label>名 称</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('name', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                    <FormItem label="名称">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('name', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>电话</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('phone', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="电话">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('phone', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col>
                             </Row>
                         </Form>
                     </div>
                 </HeadContainer>
-                
                 <AdvancedContainer>
                     <div className='demo-body'>
                         <Form>
                             <Row>
-
                                 <Col xs={12} sm={6} md={4} lg={3}>
-                                    <FormItem>
-                                            <Label>联系人</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('people', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                    <FormItem label="联系人">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('people', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col>
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>供应商</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('supplier', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="供应商">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('supplier', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col> 
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>地址</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('address', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="地址">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('address', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col> 
-
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>车牌</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('carNumber', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="车牌">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('carNumber', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col>
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>备注</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('remark', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="备注">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('remark', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col>
-
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>编号</Label>
-                                            <FormControl size="sm"
-                                                {
-                                                ...getFieldProps('id', {
-                                                    initialValue: '',
-                                                })
-                                                }
-                                            />
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="编号">
+                                        <Input size="sm"
+                                            {
+                                            ...getFieldProps('id', {
+                                                initialValue: '',
+                                            })
+                                            }
+                                        />
                                     </FormItem>
                                 </Col>
-
                             </Row>
                         </Form>
                     </div>                 

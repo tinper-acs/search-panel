@@ -6,14 +6,10 @@
  */
 import React, {Component} from 'react';
 import SearchPanel from '../../src';
-import { Form, Label,Checkbox,Switch,Button,
-     Radio, Select,  Col , Row , FormControl } from 'tinper-bee';
-import DatePicker from 'bee-datepicker';
-import moment from "moment/moment";
-const FormItem = Form.FormItem;
+import { Form, Checkbox, Radio, Select, Col, Row, Input } from '@tinper/next-ui';
+const FormItem = Form.Item;
 const Option = Select.Option;
-const { RangePicker } = DatePicker;
-const CheckboxGroup = Checkbox.CheckboxGroup;
+const CheckboxGroup = Checkbox.Group;
 const HeadContainer = SearchPanel.HeadContainer;
 const AdvancedContainer = SearchPanel.AdvancedContainer;
 
@@ -79,9 +75,8 @@ class Demo3 extends Component {
                         <Form>
                             <Row>
                                 <Col xs={12} sm={6} md={4} lg={3}>
-                                    <FormItem>
-                                            <Label>订单编号</Label>
-                                            <FormControl size="sm"
+                                    <FormItem label="订单编号">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('orderCode', {
                                                     initialValue: '',
@@ -91,10 +86,9 @@ class Demo3 extends Component {
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>供应商名称</Label>
-                                            <FormControl size="sm"
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="供应商名称">
+                                            <Input size="sm"
                                                 {
                                                 ...getFieldProps('supplierName', {
                                                     initialValue: '',
@@ -113,9 +107,8 @@ class Demo3 extends Component {
                     <div className='demo-body'>
                         <Form>
                             <Row>
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>订单类型</Label>
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="订单类型">
                                             <Select size="sm"
                                                 {
                                                 ...getFieldProps('type', {
@@ -134,9 +127,8 @@ class Demo3 extends Component {
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>采购组</Label>
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="采购组">
                                             <CheckboxGroup 
                                                     {
                                                         ...getFieldProps('purchasingGroup',{
@@ -150,10 +142,9 @@ class Demo3 extends Component {
                                     </FormItem>
                                 </Col>
 
-                                <Col xs={12} sm={6} md={4}  lg={3}>
-                                    <FormItem>
-                                            <Label>审批</Label>
-                                            <Radio.RadioGroup
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <FormItem label="审批">
+                                            <Radio.Group
                                                     {
                                                     ...getFieldProps('approvalState', {
                                                         initialValue: '1',
@@ -163,7 +154,7 @@ class Demo3 extends Component {
                                                 >
                                                 <Radio value="0" >未审批</Radio>
                                                 <Radio value="1" >已审批</Radio>
-                                            </Radio.RadioGroup>
+                                            </Radio.Group>
                                     </FormItem>
                                 </Col>
                             </Row>

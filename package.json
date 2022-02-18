@@ -1,22 +1,20 @@
 {
-  "name": "bee-search-panel",
-  "version": "3.0.3",
-  "description": "SearchPanel ui component for react",
+  "name": "search-panel-tinper-next",
+  "version": "1.0.0",
+  "description": "使用@tinper/next-ui开发的新查询区",
   "keywords": [
     "react",
     "react-component",
-    "bee-search-panel",
     "iuap-design",
-    "tinper-bee",
     "SearchPanel"
   ],
   "engines": {
     "node": ">=4.0.0"
   },
-  "homepage": "https://github.com/tinper-bee/bee-search-panel",
-  "author": "liushaozhen",
-  "repository": "http://github.com/tinper-bee/bee-search-panel",
-  "bugs": "https://github.com/tinper-bee/bee-search-panel/issues",
+  "homepage": "https://github.com/tinper-acs/search-panel",
+  "author": "gx",
+  "repository": "https://github.com/tinper-acs/search-panel",
+  "bugs": "https://github.com/tinper-acs/search-panel/issues",
   "license": "MIT",
   "main": "./build/index.js",
   "config": {
@@ -36,12 +34,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "babel-runtime": "^6.23.0",
-    "bee-locale": "^0.0.13",
-    "bee-panel": "latest",
-    "classnames": "^2.2.5",
-    "is-instance-of": "^1.0.1",
-    "tinper-bee-core": "latest"
+    "classnames": "^2.2.5"
   },
   "devDependencies": {
     "bee-button": "latest",

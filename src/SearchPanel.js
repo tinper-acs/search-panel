@@ -1,13 +1,47 @@
 import React, {Component} from 'react';
-import {Panel} from 'bee-panel';
+import { Collapse } from '@tinper/next-ui';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import AdvancedContainer from './AdvancedContainer';
 import HeadContainer from './HeadContainer';
 import i18n from './i18n';
-import { getComponentLocale } from 'bee-locale/build/tool';
 
+function getComponentLocale(props, context, componentName, getDefaultLocale) {
+    let locale = {};
+    if (context && context.beeLocale && context.beeLocale[componentName]) {
+        locale = context.beeLocale[componentName];
+    } else {
+        const defaultLocale = getDefaultLocale();
 
+        locale = defaultLocale.default || defaultLocale;
+    }
+    const result = {
+        ...locale,
+        ...props.locale,
+    };
+    if(props.locale){
+        result.lang = {
+            ...locale.lang,
+            ...props.locale.lang,
+        };
+    }else{
+        result.lang = {
+            ...locale.lang
+        };
+    }
+    return result;
+}
+
+function getLocaleCode(context) {
+    const localeCode = context.beeLocale && context.beeLocale.lang;
+    // Had use LocaleProvide but didn't set locale
+    if (context.beeLocale && context.beeLocale.exist && !localeCode) {
+        return 'zh-cn';
+    }
+    return localeCode;
+}
+
+const { Panel } = Collapse;
 const emFun = () => {}
 
 const propTypes =  {
@@ -30,12 +64,11 @@ const propTypes =  {
 const defaultProps = {
     isExpandedBtn:true,
     className: "",
-    clsPrefix: 'u-search',
+    clsPrefix: 'wui-search',
     defaultExpanded: false,
     bgColor: "#F7F9FB",
     showOperation: true
 };
-
 
 class SearchPanel extends Component {
     constructor(props) {
@@ -58,7 +91,6 @@ class SearchPanel extends Component {
             expanded: !this.state.expanded
         })
     }
-
 
     _onChange = () => {
         const { onChange } = this.props;
@@ -112,7 +144,6 @@ class SearchPanel extends Component {
             this._AdvancedContainer = element;
         }
     }
-
 
     render() {
         const local = getComponentLocale(this.props, this.context, 'SearchPanel', () => i18n);
